@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
 	<data>
+		<!-- Estructura de formulario -->
 		<record model="ir.ui.view" id="view_UPOMenu_plato_form">
 			<field name="name">view_UPOMenu_plato_form</field>
 			<field name="model">plato</field>
@@ -15,6 +16,7 @@
 				</form>
 			</field>
 		</record>
+		<!-- Estructura de arbol -->
 		<record model="ir.ui.view" id="view_UPOMenu_plato_tree">
 			<field name="name">view_UPOMenu_plato_tree</field>
 			<field name="model">plato</field>
@@ -27,6 +29,7 @@
 				</tree>
 			</field>
 		</record>
+		
 		<record id="act_plato" model="ir.actions.act_window">
 			<field name="name">Platos</field>
 			<field name="res_model">plato</field>
