@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
 	<data>
-		<record id="act_menuclass" model="ir.actions.act_window">
+		<record id="act_menu" model="ir.actions.act_window">
 			<field name="name">Menus</field>
-			<field name="res_model">menuclass</field>
+			<field name="res_model">menu</field>
 			<field name="view_type">form</field>
 			<field name="view_mode">form,tree</field>
 
 		</record>
 		<!-- Estructura de arbol -->
 		<record model="ir.ui.view" id="view_upomenu_tree_view">
-			<field name="name">view_upomenu_menuclass_tree</field>
-			<field name="model">menuclass</field>
+			<field name="name">view_upomenu_menu_tree</field>
+			<field name="model">menu</field>
 			<field name="type">tree</field>
 			<field name="arch" type="xml">
 				<tree string="tree_string">
@@ -22,9 +22,9 @@
 			</field>
 		</record>
 		<!-- Buscador 
-		<record id="view_upomenu_menuclass_search" model="ir.ui.view">
-			<field name="name">view_menuclass_search</field>
-			<field name="model">menuclass</field>
+		<record id="view_upomenu_menu_search" model="ir.ui.view">
+			<field name="name">view_menu_search</field>
+			<field name="model">menu</field>
 			<field name="type">search</field>
 			<field name="arch" type="xml">
 				<search string="Busqueda de menus">
@@ -39,21 +39,21 @@
 		</record>
 		-->
 		<!-- Menu lateral -->
-		<menuitem id="UpoMenu" name="UPOMenu" action="act_menuclass" />
+		<menuitem id="UpoMenu" name="UPOMenu" action="act_menu" />
 		<menuitem name="Menu" id="menus_submenu" parent="UpoMenu"
-			sequence="100" action="act_menuclass" />
+			sequence="100" action="act_menu" />
 		<menuitem name="Ver menus" id="ver_menus_submenu" parent="menus_submenu"
-			sequence="100" action="act_menuclass" />
+			sequence="100" action="act_menu" />
 
 		<menuitem name="Bebida" id="bebida_submenu" parent="UpoMenu"
-			sequence="100" action="act_menuclass" />
+			sequence="100" action="act_menu" />
 		<menuitem name="Ver Bebidas" id="ver_bebidas_submenu" parent="bebida_submenu"
-			sequence="100" action="act_menuclass" />
+			sequence="100" action="act_menu" />
 
 		<menuitem name="Platos" id="platos_submenu" parent="UpoMenu"
-			sequence="100" action="act_menuclass" />
+			sequence="100" action="act_menu" />
 		<menuitem name="Ver Platos" id="ver_platos_submenu" parent="platos_submenu"
-			sequence="100" action="act_menuclass" />
+			sequence="100" action="act_menu" />
 
 
 	</data>
