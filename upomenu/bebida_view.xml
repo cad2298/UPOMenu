@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record id="act_bebida" model="ir.actions.act_window">
+			<field name="name">Bebida</field>
+			<field name="res_model">bebida</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+		</record>
+		<menuitem id="M" name="Bebida" action="act_bebida" />
+		
+	</data>
+</openerp>

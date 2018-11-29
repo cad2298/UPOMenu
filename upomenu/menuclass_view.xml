@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record id="act_menuclass" model="ir.actions.act_window">
+			<field name="name">Menus</field>
+			<field name="res_model">menuclass</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+		</record>
+		
+		<menuitem id="caterin" name="Caterin" action="act_menuclass"/>
+		<menuitem name="Menu" id="menus_submenu" parent="caterin" sequence="100" action="act_menuclass"/>
+	</data>
+</openerp>
