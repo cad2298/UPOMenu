@@ -37,6 +37,6 @@ class plato(osv.Model):
             'imagen':fields.binary('Imagen'), 
             'precio':fields.float('Precio', digits=(6, 2)),
             'ingrediente_ids':fields.many2many('ingrediente','plato_ingrediente_rel','plato_id','ingrediente_id','Ingredientes'),
-            #'platosmenu_ids':fields.one2many('platosmenu','plato_id','platomenu'),
+            'platosmenu_ids':fields.one2many('platosmenu','plato_id','platomenu'),
         }
             
