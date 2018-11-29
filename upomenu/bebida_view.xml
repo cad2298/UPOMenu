@@ -7,7 +7,7 @@
 			<field name="view_type">form</field>
 			<field name="view_mode">form</field>
 		</record>
-		<menuitem id="M" name="Bebida" action="act_bebida" />
-		
+		<menuitem id="bebidas_submenu" name="Bebidas" parent="UpoMenu" />
+		<menuitem id="ver_bebidas_submenu" name="Ver Bebidas" parent="bebidas_submenu" action="act_bebida" />
 	</data>
 </openerp>
