@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="view_UPOMenu_ingrediente_form">
+			<field name="name">view_UPOMenu_ingrediente_form</field>
+			<field name="model">ingrediente</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="form_string">
+					<field name="name" />
+					<field name="precio" />
+					<newline />
+					<field name="plato_ids" mode="tree" />
+				</form>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="view_UPOMenu_ingrediente_tree">
+			<field name="name">view_UPOMenu_ingrediente_tree</field>
+			<field name="model">ingrediente</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="tree_string">
+					<field name="name" />
+					<field name="precio" />
+				</tree>
+			</field>
+		</record>
+		<record id="act_ingrediente" model="ir.actions.act_window">
+			<field name="name">Ingrediente</field>
+			<field name="res_model">ingrediente</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<menuitem name="Ingredientes" id="ingredientes_submenu"
+			parent="UpoMenu" sequence="130" />
+		<menuitem name="Ver ingredientes" id="ver_ingredientes_submenu"
+			parent="ingredientes_submenu" sequence="110" action="act_ingrediente" />
+	</data>
+</openerp>
