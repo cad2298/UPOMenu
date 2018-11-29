@@ -1,22 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
 	<data>
-		<!-- Estructura de formulario -->
+		<!-- Vista de formulario -->
 		<record model="ir.ui.view" id="view_UPOMenu_plato_form">
 			<field name="name">view_UPOMenu_plato_form</field>
 			<field name="model">plato</field>
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="form_string">
-					<field name="name" />
-					<field name="tipo" />
-					<field name="precio" />
-					<newline />
-					<field name="ingrediente_ids" mode="tree" />
+					<group colspan="2">
+						<field name="name" />
+						<field name="tipo" />
+						<field name="precio" />
+						<separator string="Ingredientes" colspan="2" />
+						<field name="ingrediente_ids" mode="tree" nolabel="1"
+							colspan="2" />
+					</group>
+					<field name="imagen" nolabel="1" widget="image" colspan="2" />
 				</form>
 			</field>
 		</record>
-		<!-- Estructura de arbol -->
+		<!-- Vista de arbol -->
 		<record model="ir.ui.view" id="view_UPOMenu_plato_tree">
 			<field name="name">view_UPOMenu_plato_tree</field>
 			<field name="model">plato</field>
@@ -29,13 +33,27 @@
 				</tree>
 			</field>
 		</record>
-		
+		<!-- Vista de Búsqueda -->
+		<record model="ir.ui.view" id="view_UPOMenu_plato_search">
+			<field name="name">view_UPOMenu_plato_search</field>
+			<field name="model">plato</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Platos">
+					<group expand="0" string="Agrupar por...">
+						<filter string="Tipo" context="{'group_by':'tipo'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+		<!-- Action -->
 		<record id="act_plato" model="ir.actions.act_window">
 			<field name="name">Platos</field>
 			<field name="res_model">plato</field>
 			<field name="view_type">form</field>
-			<field name="view_mode">form,tree</field>
+			<field name="view_mode">tree,form</field>
 		</record>
+		<menuitem id="UpoMenu" name="UPOMenu" action="act_plato" />
 		<menuitem name="Platos" id="platos_submenu" parent="UpoMenu"
 			sequence="130" />
 		<menuitem name="Ver platos" id="ver_platos_submenu" parent="platos_submenu"

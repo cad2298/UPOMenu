@@ -30,7 +30,13 @@ class ingrediente(osv.Model):
  
     _columns = {
             'name':fields.char('Nombre', size=64, required=True, readonly=False),
-            'precio':fields.float('Precio', digits=(6, 2)),
+            'alergeno':fields.selection([('no', 'No'),
+                                     ('crustaceo', 'Crustáceo'),
+                                     ('huevo', 'Huevo'),
+                                     ('gluten', 'Gluten'),
+                                     ('nueces', 'Nueces'),
+                                     ('lacteos', 'Lácteos'),
+                                     ], 'Alérgeno'),
             'plato_ids':fields.many2many('plato','plato_ingrediente_rel','ingrediente_id','plato_id','Platos'),
         }
             

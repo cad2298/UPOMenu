@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
 	<data>
+		<!-- Vista de formulario -->
 		<record model="ir.ui.view" id="view_UPOMenu_ingrediente_form">
 			<field name="name">view_UPOMenu_ingrediente_form</field>
 			<field name="model">ingrediente</field>
@@ -8,12 +9,12 @@
 			<field name="arch" type="xml">
 				<form string="form_string">
 					<field name="name" />
-					<field name="precio" />
 					<newline />
-					<field name="plato_ids" mode="tree" />
+					<field name="alergeno" />
 				</form>
 			</field>
 		</record>
+		<!-- Vista de arbol -->
 		<record model="ir.ui.view" id="view_UPOMenu_ingrediente_tree">
 			<field name="name">view_UPOMenu_ingrediente_tree</field>
 			<field name="model">ingrediente</field>
@@ -21,10 +22,24 @@
 			<field name="arch" type="xml">
 				<tree string="tree_string">
 					<field name="name" />
-					<field name="precio" />
+					<field name="alergeno" />
 				</tree>
 			</field>
 		</record>
+		<!-- Vista de Búsqueda -->
+		<record model="ir.ui.view" id="view_UPOMenu_ingrediente_search">
+			<field name="name">view_UPOMenu_ingrediente_search</field>
+			<field name="model">ingrediente</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Ingredientes">
+					<group expand="0" string="Agrupar por...">
+						<filter string="Alérgenos" context="{'group_by':'alergeno'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+		<!-- Action -->
 		<record id="act_ingrediente" model="ir.actions.act_window">
 			<field name="name">Ingrediente</field>
 			<field name="res_model">ingrediente</field>
