@@ -33,7 +33,6 @@
 			<field name="view_type">form</field>
 			<field name="view_mode">form,tree</field>
 		</record>
-		<menuitem id="UpoMenu" name="UPOMenu" action="act_plato" />
 		<menuitem name="Platos" id="platos_submenu" parent="UpoMenu"
 			sequence="130" />
 		<menuitem name="Ver platos" id="ver_platos_submenu" parent="platos_submenu"
