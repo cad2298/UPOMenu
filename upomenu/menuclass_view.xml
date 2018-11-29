@@ -39,7 +39,7 @@
 		</record>
 		-->
 		<!-- Menu lateral -->
-		<menuitem id="UpoMenu" name="UpoMenu" action="act_menuclass" />
+		<menuitem id="UpoMenu" name="UPOMenu" action="act_menuclass" />
 		<menuitem name="Menu" id="menus_submenu" parent="UpoMenu"
 			sequence="100" action="act_menuclass" />
 		<menuitem name="Ver menus" id="ver_menus_submenu" parent="menus_submenu"
