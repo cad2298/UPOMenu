@@ -21,4 +21,6 @@
 #
 ##############################################################################
 import bebida
-import menuclass
+import menu
+import plato
+import ingrediente
