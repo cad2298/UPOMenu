@@ -23,7 +23,7 @@
 from osv import osv
 from osv import fields
 
-class menuclass(osv.Model):
+class menu(osv.Model):
 
     _name = 'menu'
     _description = 'Menus.'
