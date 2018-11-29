@@ -25,7 +25,7 @@ from osv import fields
 
 class menuclass(osv.Model):
 
-    _name = 'menuclass'
+    _name = 'menu'
     _description = 'Menus.'
  
     _columns = {
