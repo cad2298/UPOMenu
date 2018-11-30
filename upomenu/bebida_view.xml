@@ -1,13 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
 	<data>
+		<record model="ir.ui.view" id="upomenu_bebida_form_view">
+			<field name="name">view_UPOMenu_plato_form</field>
+			<field name="model">bebida</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="form_string">
+
+					<group colspan="2">
+						<field name="name" colspan="1"/>
+						<field name="price" />
+						<field name="cantidad" />
+						<field name="alcoholica" />
+						<field name="gaseosa" />
+						<field name="azucarada" />
+						
+					</group>
+				
+				</form>
+			</field>
+		</record>
+
+		<!-- Vista de Arbol -->
+		<record model="ir.ui.view" id="view_UPOMenu_bebida_tree">
+			<field name="name">view_UPOMenu_bebida_view</field>
+			<field name="model">bebida</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="tree_string">
+					<field name="name" />
+					<field name="price" />
+					<field name="cantidad" />
+					<field name="alcoholica" />
+					<field name="gaseosa" />
+					<field name="azucarada" />
+				</tree>
+			</field>
+		</record>
+
 		<record id="act_bebida" model="ir.actions.act_window">
-			<field name="name">Bebida</field>
+			<field name="name">bebida</field>
 			<field name="res_model">bebida</field>
 			<field name="view_type">form</field>
-			<field name="view_mode">form</field>
+			<field name="view_mode">tree,form</field>
 		</record>
-		<menuitem id="bebidas_submenu" name="Bebidas" parent="UpoMenu" />
-		<menuitem id="ver_bebidas_submenu" name="Ver Bebidas" parent="bebidas_submenu" action="act_bebida" />
+
+		<menuitem id="UpoMenu" name="UPOMenu" action="act_bebida" />
+		<menuitem name="Bebidas" id="bebidas_submenu" parent="UpoMenu"
+			sequence="130" />
+		<menuitem name="Ver Bebidas" id="ver_bebidas_submenu" parent="bebidas_submenu"
+			sequence="110" action="act_bebida" />
+
 	</data>
 </openerp>

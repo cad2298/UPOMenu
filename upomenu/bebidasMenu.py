@@ -1,3 +1,4 @@
+
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
@@ -19,19 +20,17 @@
 #    along with this program.  If not, see http://www.gnu.org/licenses/.
 #
 ##############################################################################
-{
-    "name": "UPOMenu",
-    "version": "1.0",
-    "depends": ["base"],
-    "author": "Grupo02",
-    "category": "Catering",
-    "description": """Module to manage a catring service
-    """,
-    "init_xml": [],
-    'update_xml': [],
-    'demo_xml': [],
-    'data': ['menu_view.xml','plato_view.xml','ingrediente_view.xml','bebida_view.xml'],
-    'installable': True,
-    'active': False,
-#    'certificate': 'certificate',
-}
+from osv import osv
+from osv import fields
+
+class bebidasMenu(osv.Model):
+    _name = 'bebidasmenu'
+    _description = 'Tabla intermedia entre bebidas y menu'
+ 
+    _columns = {
+            'quantity':fields.integer('quantity', size=64, required=True, readonly=False),
+            
+            'bebida_ids':fields.one2many('bebidas','bebida_id','bebidasmenu'),
+            'bebidasmenu_id':fields.many2one('bebidasmenu','menu_id','menu'),
+            
+        }
