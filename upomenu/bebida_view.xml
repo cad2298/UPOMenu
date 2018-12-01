@@ -11,11 +11,9 @@
 					<group colspan="2">
 						<field name="name" colspan="1"/>
 						<field name="price" />
-						<field name="cantidad" />
 						<field name="alcoholica" />
 						<field name="gaseosa" />
-						<field name="azucarada" />
-						
+						<field name="azucarada" />						
 					</group>
 				
 				</form>
@@ -31,7 +29,6 @@
 				<tree string="tree_string">
 					<field name="name" />
 					<field name="price" />
-					<field name="cantidad" />
 					<field name="alcoholica" />
 					<field name="gaseosa" />
 					<field name="azucarada" />
@@ -46,7 +43,6 @@
 			<field name="view_mode">tree,form</field>
 		</record>
 
-		<menuitem id="UpoMenu" name="UPOMenu" action="act_bebida" />
 		<menuitem name="Bebidas" id="bebidas_submenu" parent="UpoMenu"
 			sequence="130" />
 		<menuitem name="Ver Bebidas" id="ver_bebidas_submenu" parent="bebidas_submenu"

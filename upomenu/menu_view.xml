@@ -1,56 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
 	<data>
+		<record model="ir.ui.view" id="view_UPOMenu_menu_form">
+			<field name="name">view_UPOMenu_menu_form</field>
+			<field name="model">menu</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Menus">
+					<field name="name" />
+					<newline/>
+					<field name="price" />
+					<notebook colspan="3">
+						<page string="Platos">
+							<field name="platosmenu_ids" nolabel="1"/>
+						</page>
+						<page string="Bebidas">
+							<field name="bebidasmenu_ids" nolabel="1"/>
+						</page>
+					</notebook>
+				</form>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="view_UPOMenu_menu_tree_view">
+			<field name="name">view_UPOMenu_menu_tree</field>
+			<field name="model">menu</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Menu">
+					<field name="name" />
+					<field name="price" />
+				</tree>
+			</field>
+		</record>
+
 		<record id="act_menu" model="ir.actions.act_window">
 			<field name="name">Menus</field>
 			<field name="res_model">menu</field>
 			<field name="view_type">form</field>
 			<field name="view_mode">form,tree</field>
- 
 		</record>
-		<!-- Estructura de arbol -->
-		<record model="ir.ui.view" id="view_upomenu_tree_view">
-			<field name="name">view_upomenu_menu_tree</field>
-			<field name="model">menu</field>
-			<field name="type">tree</field>
-			<field name="arch" type="xml">
-				<tree string="tree_string">
-					<field name="name" />
-					<field name="price" />
-					
-				</tree>
-			</field>
-		</record>
-		<!-- Buscador 
-		<record id="view_upomenu_menu_search" model="ir.ui.view">
-			<field name="name">view_menu_search</field>
-			<field name="model">menu</field>
-			<field name="type">search</field>
-			<field name="arch" type="xml">
-				<search string="Busqueda de menus">
-					<field name="menus_ids" />
-					<group expand="0" string="Agrupar por…">
-						<filter name="group_by_name" string="Nombre"
-							context="{'group_by':'menus_ids'}" />
-					</group>
-				</search>
- 
-			</field>
-		</record>
-		-->
-		<!-- Menu lateral -->
+
 		<menuitem id="UpoMenu" name="UPOMenu" action="act_menu" />
 		<menuitem name="Menu" id="menus_submenu" parent="UpoMenu"
+			sequence="100" />
+		<menuitem name="Info menu" id="ver_menus_submenu" parent="menus_submenu"
 			sequence="100" action="act_menu" />
-		<menuitem name="Ver menus" id="ver_menus_submenu" parent="menus_submenu"
-			sequence="100" action="act_menu" />
- 
- 
-		<menuitem name="Platos" id="platos_submenu" parent="UpoMenu"
-			sequence="100" action="act_menu" />
-		<menuitem name="Ver Platos" id="ver_platos_submenu" parent="platos_submenu"
-			sequence="100" action="act_menu" />
- 
- 
 	</data>
 </openerp>

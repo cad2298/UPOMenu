@@ -1,3 +1,4 @@
+
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
@@ -19,19 +20,18 @@
 #    along with this program.  If not, see http://www.gnu.org/licenses/.
 #
 ##############################################################################
+
 from osv import osv
 from osv import fields
 
-class bebida(osv.Model):
-    _name = 'bebida'
-    _description = 'Listado de Bebidas disponible'
+class platosmenu(osv.Model):
+
+    _name = 'platosmenu'
+    _description = 'platosmenu'
  
     _columns = {
-            'name':fields.char('Bebida', size=64,required=True),
-            'price':fields.float('Precio', size=64,required=True),
-            'alcoholica':fields.boolean('Alcohólica'), 
-            'gaseosa':fields.boolean('Gaseosa'), 
-            'azucarada':fields.boolean('Azucarada'),
-            'bebidasmenu_ids':fields.one2many('bebidasmenu','bebida_id','Cantidad'),
+            'cantidad':fields.integer('Cantidad'),
+            'menu_id':fields.many2one('menu','Menus'),
+            'plato_id':fields.many2one('plato','Platos'),
             
         }

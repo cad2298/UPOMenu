@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="view_UPOMenu_platosmenu_form">
+			<field name="name">view_UPOMenu_platosmenu_form</field>
+			<field name="model">platosmenu</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Platos menu">
+					<field name="plato_id" />
+					<field name="cantidad" />
+				</form>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="view_UPOMenu_platosmenu_tree_view">
+			<field name="name">view_UPOMenu_platosmenu_tree</field>
+			<field name="model">platosmenu</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Platos Menu">
+					<field name="plato_id" />
+					<field name="cantidad" />
+				</tree>
+			</field>
+		</record>
+
+		<record id="act_platosmenu" model="ir.actions.act_window">
+			<field name="name">Platos menus</field>
+			<field name="res_model">platosmenu</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form,tree</field>
+		</record>
+
+
+	</data>
+</openerp>

@@ -46,9 +46,8 @@
 			<field name="view_type">form</field>
 			<field name="view_mode">tree,form</field>
 		</record>
-		<menuitem name="Ingredientes" id="ingredientes_submenu"
-			parent="UpoMenu" sequence="130" />
+		
 		<menuitem name="Ver ingredientes" id="ver_ingredientes_submenu"
-			parent="ingredientes_submenu" sequence="110" action="act_ingrediente" />
+			parent="plato_submenu" sequence="110" action="act_ingrediente" />
 	</data>
 </openerp>

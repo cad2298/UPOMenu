@@ -30,7 +30,7 @@ class ingrediente(osv.Model):
  
     _columns = {
             'name':fields.char('Nombre', size=64, required=True, readonly=False),
-            'alergeno':fields.selection([('no', 'No'),
+            'alergeno':fields.selection([('no', 'Ninguno'),
                                      ('crustaceo', 'Crustáceo'),
                                      ('huevo', 'Huevo'),
                                      ('gluten', 'Gluten'),

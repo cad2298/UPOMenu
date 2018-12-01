@@ -53,10 +53,8 @@
 			<field name="view_type">form</field>
 			<field name="view_mode">tree,form</field>
 		</record>
-		<menuitem id="UpoMenu" name="UPOMenu" action="act_plato" />
-		<menuitem name="Platos" id="platos_submenu" parent="UpoMenu"
-			sequence="130" />
-		<menuitem name="Ver platos" id="ver_platos_submenu" parent="platos_submenu"
-			sequence="110" action="act_plato" />
+		
+		<menuitem name="Platos" id="plato_submenu" parent="UpoMenu" sequence="110" action="act_plato"/>
+		<menuitem name="Ver platos" id="ver_plato_submenu" parent="plato_submenu" sequence="100" action="act_plato"/>
 	</data>
 </openerp>

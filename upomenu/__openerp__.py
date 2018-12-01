@@ -30,7 +30,7 @@
     "init_xml": [],
     'update_xml': [],
     'demo_xml': [],
-    'data': ['menu_view.xml','plato_view.xml','ingrediente_view.xml','bebida_view.xml'],
+    'data': ['menu_view.xml','bebida_view.xml', 'plato_view.xml', 'ingrediente_view.xml', 'platosmenu_view.xml','bebidasmenu_view.xml'],
     'installable': True,
     'active': False,
 #    'certificate': 'certificate',

@@ -1,3 +1,4 @@
+
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
@@ -22,16 +23,13 @@
 from osv import osv
 from osv import fields
 
-class bebida(osv.Model):
-    _name = 'bebida'
-    _description = 'Listado de Bebidas disponible'
+class bebidasmenu(osv.Model):
+    _name = 'bebidasmenu'
+    _description = 'Tabla intermedia entre bebidas y menu'
  
     _columns = {
-            'name':fields.char('Bebida', size=64,required=True),
-            'price':fields.float('Precio', size=64,required=True),
-            'alcoholica':fields.boolean('Alcohólica'), 
-            'gaseosa':fields.boolean('Gaseosa'), 
-            'azucarada':fields.boolean('Azucarada'),
-            'bebidasmenu_ids':fields.one2many('bebidasmenu','bebida_id','Cantidad'),
+            'cantidad':fields.integer('Cantidad', size=64, required=True, readonly=False),   
+            'menu_id':fields.many2one('menu','Menus'),         
+            'bebida_id':fields.many2one('bebida','Bebida'),
             
         }

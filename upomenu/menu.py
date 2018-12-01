@@ -23,7 +23,7 @@
 from osv import osv
 from osv import fields
 
-class menu(osv.Model):
+class menuclass(osv.Model):
 
     _name = 'menu'
     _description = 'Menus.'
@@ -32,8 +32,8 @@ class menu(osv.Model):
             'name':fields.char('Nombre', size=64, required=False, readonly=False, Translate=False),
             'price':fields.integer('Precio'),
             #'event_ids':fields.many2many('evento', 'evento_menu_rel', 'menu_id', 'evento_id', 'Eventos'),
-            #'platosMenu_ids':fields.one2many('platosMenu', 'menu_id', 'Platos del menu'),
-            #'bebidasMenu_ids':fields.one2many('bebidasMenu', 'menu_id', 'Bebidas del menu'),
+            'platosmenu_ids':fields.one2many('platosmenu', 'menu_id', 'Platos del menu'),
+            'bebidasmenu_ids':fields.one2many('bebidasmenu', 'menu_id', 'Bebidas del menu'),
             #'calendario_ids':fields.many2one('calendario', 'Calendario'),
             
         }

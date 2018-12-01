@@ -1,4 +1,3 @@
-
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
@@ -20,7 +19,9 @@
 #    along with this program.  If not, see http://www.gnu.org/licenses/.
 #
 ##############################################################################
-import bebida
 import menu
-import plato
+import platosmenu
+import bebida
+import bebidasmenu
 import ingrediente
+import plato

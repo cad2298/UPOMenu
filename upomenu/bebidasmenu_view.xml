@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="view_UPOMenu_bebidasmenu_form">
+			<field name="name">view_UPOMenu_bebidasmenu_form</field>
+			<field name="model">bebidasmenu</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Bebidas menu">
+					<field name="bebida_id" />
+					<field name="cantidad" />
+				</form>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="view_UPOMenu_bebidasmenu_tree_view">
+			<field name="name">view_UPOMenu_bebidasmenu_tree</field>
+			<field name="model">bebidasmenu</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Bebidas Menu">
+					<field name="bebida_id" />
+					<field name="cantidad" />
+				</tree>
+			</field>
+		</record>
+
+		<record id="act_bebidasmenu" model="ir.actions.act_window">
+			<field name="name">Bebidas menus</field>
+			<field name="res_model">bebidasmenu</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form,tree</field>
+		</record>
+
+
+	</data>
+</openerp>
