@@ -10,12 +10,13 @@
 					<field name="name" />
 					<newline/>
 					<field name="price" />
-					<notebook colspan="3">
+					<newline />
+					<notebook colspan="2">
 						<page string="Platos">
-							<field name="platosmenu_ids" nolabel="1"/>
+							<field name="platosmenu_ids" nolabel="1" />
 						</page>
 						<page string="Bebidas">
-							<field name="bebidasmenu_ids" nolabel="1"/>
+							<field name="bebidasmenu_ids" nolabel="1" />
 						</page>
 					</notebook>
 				</form>
@@ -37,13 +38,13 @@
 			<field name="name">Menus</field>
 			<field name="res_model">menu</field>
 			<field name="view_type">form</field>
-			<field name="view_mode">form,tree</field>
+			<field name="view_mode">tree,form</field>
 		</record>
 
 		<menuitem id="UpoMenu" name="UPOMenu" action="act_menu" />
 		<menuitem name="Menu" id="menus_submenu" parent="UpoMenu"
 			sequence="100" />
-		<menuitem name="Info menu" id="ver_menus_submenu" parent="menus_submenu"
+		<menuitem name="Info menus" id="ver_menus_submenu" parent="menus_submenu"
 			sequence="100" action="act_menu" />
 	</data>
 </openerp>

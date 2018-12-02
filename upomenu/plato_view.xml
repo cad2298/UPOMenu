@@ -46,15 +46,29 @@
 				</search>
 			</field>
 		</record>
+		<!-- Vista de Grafico -->
+		<record model="ir.ui.view" id="view_UPOMenu_plato_graph">
+			<field name="name">view_UPOMenu_plato_graph</field>
+			<field name="model">plato</field>
+			<field name="type">graph</field>
+			<field name="arch" type="xml">
+				<graph string="Platos por precio">
+					<field name="name" />
+					<field name="precio" />
+				</graph>
+			</field>
+		</record>
 		<!-- Action -->
 		<record id="act_plato" model="ir.actions.act_window">
 			<field name="name">Platos</field>
 			<field name="res_model">plato</field>
 			<field name="view_type">form</field>
-			<field name="view_mode">tree,form</field>
+			<field name="view_mode">tree,form,graph</field>
 		</record>
-		
-		<menuitem name="Platos" id="plato_submenu" parent="UpoMenu" sequence="110" action="act_plato"/>
-		<menuitem name="Ver platos" id="ver_plato_submenu" parent="plato_submenu" sequence="100" action="act_plato"/>
+
+		<menuitem name="Platos" id="plato_submenu" parent="UpoMenu"
+			sequence="110" action="act_plato" />
+		<menuitem name="Ver platos" id="ver_plato_submenu" parent="plato_submenu"
+			sequence="100" action="act_plato" />
 	</data>
 </openerp>

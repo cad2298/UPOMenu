@@ -7,15 +7,15 @@
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="form_string">
-
-					<group colspan="2">
-						<field name="name" colspan="1"/>
-						<field name="price" />
-						<field name="alcoholica" />
-						<field name="gaseosa" />
-						<field name="azucarada" />						
-					</group>
-				
+					<field name="name" colspan="2" />
+					<newline />
+					<field name="price" />
+					<newline />
+					<field name="alcoholica" />
+					<newline />
+					<field name="gaseosa" />
+					<newline />
+					<field name="azucarada" />
 				</form>
 			</field>
 		</record>
@@ -35,9 +35,25 @@
 				</tree>
 			</field>
 		</record>
+		
+		<!-- Vista de Búsqueda -->
+		<record model="ir.ui.view" id="view_UPOMenu_bebida_search">
+			<field name="name">view_UPOMenu_bebida_search</field>
+			<field name="model">bebida</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Bebidas">
+					<group expand="0" string="Mostrar bebidas...">
+						<filter string="Alcoholicas" domain="[('alcoholica','=','True')]" />
+						<filter string="Gaseosas" domain="[('gaseosa','=','True')]" />
+						<filter string="Azucaradas" domain="[('azucarada','=','True')]" />
+					</group>
+				</search>
+			</field>
+		</record>
 
 		<record id="act_bebida" model="ir.actions.act_window">
-			<field name="name">bebida</field>
+			<field name="name">Bebida</field>
 			<field name="res_model">bebida</field>
 			<field name="view_type">form</field>
 			<field name="view_mode">tree,form</field>
@@ -45,7 +61,7 @@
 
 		<menuitem name="Bebidas" id="bebidas_submenu" parent="UpoMenu"
 			sequence="130" />
-		<menuitem name="Ver Bebidas" id="ver_bebidas_submenu" parent="bebidas_submenu"
+		<menuitem name="Ver bebidas" id="ver_bebidas_submenu" parent="bebidas_submenu"
 			sequence="110" action="act_bebida" />
 
 	</data>
