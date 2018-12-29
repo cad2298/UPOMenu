@@ -31,7 +31,7 @@ class menuclass(osv.Model):
     _columns = {
             'name':fields.char('Nombre', size=64, required=False, readonly=False, Translate=False),
             'price':fields.integer('Precio'),
-            #'event_ids':fields.many2many('evento', 'evento_menu_rel', 'menu_id', 'evento_id', 'Eventos'),
+            'event_ids':fields.many2many('evento', 'evento_menu_rel', 'menu_id', 'evento_id', 'Eventos'),
             'platosmenu_ids':fields.one2many('platosmenu', 'menu_id', 'Platos del menu'),
             'bebidasmenu_ids':fields.one2many('bebidasmenu', 'menu_id', 'Bebidas del menu'),
             #'calendario_ids':fields.many2one('calendario', 'Calendario'),
