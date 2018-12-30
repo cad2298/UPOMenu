@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<!-- Vista de formulario -->
+		<record model="ir.ui.view" id="upomenu_finca_form_view">
+			<field name="name">view_UPOMenu_finca_form</field>
+			<field name="model">finca</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="form_string">
+
+					<group colspan="2">
+						<field name="name" colspan="1" />
+						<field name="ubicacion" />
+						<field name="aforo" />
+						<field name="precio" />
+						<field name="conciertos" />
+						<field name="exterior" />
+						<field name="eventos_ids" />
+					</group>
+
+				</form>
+			</field>
+		</record>
+
+		<!-- Vista de Arbol -->
+		<record model="ir.ui.view" id="view_UPOMenu_finca_tree">
+			<field name="name">view_UPOMenu_finca_view</field>
+			<field name="model">finca</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="tree_string">
+					<field name="name" colspan="1" />
+					<field name="ubicacion" />
+					<field name="aforo" />
+					<field name="precio" />
+					<field name="conciertos" />
+					<field name="exterior" />
+					<field name="eventos_ids" />
+				</tree>
+			</field>
+		</record>
+
+		<!-- Action -->
+		<record id="act_finca" model="ir.actions.act_window">
+			<field name="name">Fincas</field>
+			<field name="res_model">finca</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		
+		<menuitem name="Ver fincas" id="ver_fincas_submenu"
+			parent="eventos_submenu" sequence="110" action="act_finca" />
+
+	</data>
+</openerp>
