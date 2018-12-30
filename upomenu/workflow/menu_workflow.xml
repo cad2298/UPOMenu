@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<!-- Declaración del workflow -->
+		<record id="wkf_menu" model="workflow">
+			<field name="name">user.basic</field>
+			<field name="osv">menu</field>
+			<field name="on_create">True</field>
+		</record>
+		<!-- Declaración de nodos -->
+		<record id="act_menu_nuevo" model="workflow.activity">
+			<field name="wkf_id" ref="wkf_menu" />
+			<field name="flow_start">True</field>
+			<field name="name">Nuevo</field>
+			<field name="kind">dummy</field>
+		</record>
+		<record id="act_menu_aprobado" model="workflow.activity">
+			<field name="wkf_id" ref="wkf_gymuser" />
+			<field name="name">Aprobado</field>
+			<field name="kind">function</field>
+			<field name="action">write({'state':'aprobado'}) </field>
+		</record>
+		<record id="act_menu_rechazado" model="workflow.activity">
+			<field name="wkf_id" ref="wkf_gymuser" />
+			<field name="name">Cancelado</field>
+			<field name="kind">function</field>
+			<field name="action">write({'state':'rechazado'}) </field>
+			<field name="flow_stop">True</field>
+		</record>
+		<!-- Declaración de las transiciones -->
+		<record id="trans_nuevo_aprobado" model="workflow.transition">
+			<field name="act_from" ref="act_menu_nuevo" />
+			<field name="act_to" ref="act_menu_aprobado" />
+			<field name="signal">aprobar</field>
+		</record>
+		<record id="trans_nuevo_rechazado" model="workflow.transition">
+			<field name="act_from" ref="act_menu_nuevo" />
+			<field name="act_to" ref="act_menu_rechazado" />
+			<field name="signal">cancelar</field>
+		</record>
+	</data>
+</openerp>

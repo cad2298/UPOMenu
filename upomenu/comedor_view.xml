@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<!-- Vista de formulario -->
+		<record model="ir.ui.view" id="view_UPOMenu_comedor_form">
+			<field name="name">view_UPOMenu_comedor_form</field>
+			<field name="model">comedor</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="form_string">
+					<group colspan="2">
+						<field name="name" />
+						<field name="ubicacion" />
+						<field name="email" />
+
+					</group>
+					<group colspan="2">
+						<field name="calendarioDeMenus_id" />
+						<separator string="Personal" colspan="2" />
+						<field name="personal_ids" mode="tree" nolabel="1" colspan="2" />
+					</group>
+				</form>
+			</field>
+		</record>
+		<!-- Vista de arbol -->
+		<record model="ir.ui.view" id="view_UPOMenu_comedor_tree">
+			<field name="name">view_UPOMenu_comedor_tree</field>
+			<field name="model">comedor</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="tree_string">
+					<field name="name" />
+					<field name="ubicacion" />
+					<field name="email" />
+					<field name="calendarioDeMenus_id" />
+				</tree>
+			</field>
+		</record>
+
+		<!-- Action -->
+		<record id="act_comedor" model="ir.actions.act_window">
+			<field name="name">Comedor</field>
+			<field name="res_model">comedor</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem name="Comedores" id="comedor_submenu" parent="UpoMenu"
+			sequence="120" action="act_comedor" />
+		<menuitem name="Ver comedores" id="ver_comedor_submenu"
+			parent="comedor_submenu" sequence="100" action="act_comedor" />
+	</data>
+</openerp>

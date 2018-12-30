@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<!-- Vista de formulario -->
+		<record model="ir.ui.view" id="view_UPOMenu_personal_form">
+			<field name="name">view_UPOMenu_personal_form</field>
+			<field name="model">personal</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="form_string">
+					<group colspan="2">
+						<field name="name" />
+						<field name="dni" />
+						<field name="telefono" />
+						<field name="email" />
+						<field name="numEventosRealizados" />
+					</group>
+					<group colspan="2">
+						<notebook>
+							<page string="Eventos">
+								<field name="evento_ids" mode="tree" nolabel="1" colspan="2" />
+							</page>
+							<page string="Comedores">
+								<field name="comedor_ids" mode="tree" nolabel="1" colspan="2" />
+							</page>
+						</notebook>
+					</group>
+				</form>
+			</field>
+		</record>
+		<!-- Vista de arbol -->
+		<record model="ir.ui.view" id="view_UPOMenu_personal_tree">
+			<field name="name">view_UPOMenu_personal_tree</field>
+			<field name="model">personal</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="tree_string">
+					<field name="name" />
+					<field name="dni" />
+					<field name="telefono" />
+					<field name="email" />
+					<field name="numEventosRealizados" />
+				</tree>
+			</field>
+		</record>
+
+		<!-- Action -->
+		<record id="act_comedor" model="ir.actions.act_window">
+			<field name="name">Personal</field>
+			<field name="res_model">personal</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem name="Personal" id="personal_submenu" parent="UpoMenu"
+			sequence="120" action="act_personal" />
+		<menuitem name="Ver personal" id="ver_personal_submenu"
+			parent="comedor_submenu" sequence="100" action="act_personal" />
+	</data>
+</openerp>
