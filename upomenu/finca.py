@@ -36,6 +36,6 @@ class finca(osv.Model):
             'precio':fields.integer('Precio'),
             'conciertos':fields.boolean('Admite conciertos'),
             'exterior':fields.boolean('Exterior'),
-            'eventos_ids':fields.one2many('evento','finca_id','Eventos'),
+            'evento_ids':fields.one2many('evento','finca_id','Eventos'),
                         
         }

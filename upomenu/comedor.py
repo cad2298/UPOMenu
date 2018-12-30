@@ -32,7 +32,7 @@ class comedor(osv.Model):
             'name':fields.char('Nombre', size=64, required=True, readonly=False),
             'ubicacion':fields.char('Ubicación'),
             'email':fields.char('Email', size=64),
-            # 'calendarioDeMenus_id':fields.many2one('calendarioDeMenus','Calendario'),
-            # 'personal_ids':fields.many2many('personal','comedor_personal_rel','comedor_id','personal_id','Personal'),
+            'calendario_de_menus_id':fields.many2one('calendario_de_menus','Calendario'),
+            'personal_ids':fields.many2many('personal','comedor_personal_rel','comedor_id','personal_id','Personal'),
             }
             

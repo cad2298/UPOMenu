@@ -23,15 +23,14 @@
 from osv import osv
 from osv import fields
 
-class cliente(osv.Model):
+class calendario_de_menus(osv.Model):
 
-    _name = 'cliente'
-    _description = 'Clientes.'
+    _name = 'calendario_de_menus'
+    _description = 'Calendario de menus para usar en comedores.'
  
     _columns = {
             'name':fields.char('Nombre', size=64, required=True),
-            'telefono':fields.integer('Telefono'),
-            'email':fields.char('Correo', size=128),
-            'identificador':fields.integer('Id'),
-            'evento_ids':fields.one2many('evento', 'cliente_id', 'Eventos', Readonly=True),
+            'menu_ids':fields.one2many('menu', 'calendario_de_menus_id', 'Menus'),
+            #'comedor_ids':fields.one2many('comedor', 'calendario_de_menus_id', 'Comedores'),
             }
+            

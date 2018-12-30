@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<!-- Vista de formulario -->
+		<record model="ir.ui.view" id="view_UPOMenu_calendario_de_menus_form">
+			<field name="name">view_UPOMenu_calendario_de_menus_form</field>
+			<field name="model">calendario_de_menus</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="form_string">
+					<field name="name" />
+					<notebook>
+						<page string="Menus">
+							<field name="menu_ids" mode="tree" nolabel="1" colspan="2" />
+						</page>
+						<!-- <page string="Comedores">
+							<field name="comedor_ids" mode="tree" nolabel="1" colspan="2" />
+						</page> -->
+					</notebook>
+				</form>
+			</field>
+		</record>
+		<!-- Vista de arbol -->
+		<record model="ir.ui.view" id="view_UPOMenu_calendario_de_menus_tree">
+			<field name="name">view_UPOMenu_calendario_de_menus_tree</field>
+			<field name="model">calendario_de_menus</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="tree_string">
+					<field name="name" />
+					<field name="menu_ids" />
+					<!-- <field name="comedor_ids" /> -->
+				</tree>
+			</field>
+		</record>
+
+		<!-- Action -->
+		<record id="act_calendario_de_menus" model="ir.actions.act_window">
+			<field name="name">Calendario de Menus</field>
+			<field name="res_model">calendario_de_menus</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem name="Ver calendarios de menus" id="ver_calendario_de_menus_submenu"
+			parent="menus_submenu" sequence="100"
+			action="act_calendario_de_menus" />
+	</data>
+</openerp>

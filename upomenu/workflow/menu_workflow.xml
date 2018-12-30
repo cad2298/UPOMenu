@@ -7,6 +7,7 @@
 			<field name="osv">menu</field>
 			<field name="on_create">True</field>
 		</record>
+		
 		<!-- Declaración de nodos -->
 		<record id="act_menu_nuevo" model="workflow.activity">
 			<field name="wkf_id" ref="wkf_menu" />
@@ -15,18 +16,19 @@
 			<field name="kind">dummy</field>
 		</record>
 		<record id="act_menu_aprobado" model="workflow.activity">
-			<field name="wkf_id" ref="wkf_gymuser" />
+			<field name="wkf_id" ref="wkf_menu" />
 			<field name="name">Aprobado</field>
 			<field name="kind">function</field>
 			<field name="action">write({'state':'aprobado'}) </field>
 		</record>
 		<record id="act_menu_rechazado" model="workflow.activity">
-			<field name="wkf_id" ref="wkf_gymuser" />
+			<field name="wkf_id" ref="wkf_menu" />
 			<field name="name">Cancelado</field>
 			<field name="kind">function</field>
 			<field name="action">write({'state':'rechazado'}) </field>
 			<field name="flow_stop">True</field>
 		</record>
+		
 		<!-- Declaración de las transiciones -->
 		<record id="trans_nuevo_aprobado" model="workflow.transition">
 			<field name="act_from" ref="act_menu_nuevo" />

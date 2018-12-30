@@ -25,3 +25,9 @@ import bebida
 import bebidasmenu
 import ingrediente
 import plato
+import comedor
+import evento
+import cliente
+import finca
+import personal
+import calendario_de_menus

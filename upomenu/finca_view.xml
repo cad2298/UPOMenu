@@ -16,7 +16,7 @@
 						<field name="precio" />
 						<field name="conciertos" />
 						<field name="exterior" />
-						<field name="eventos_ids" />
+						<field name="evento_ids" />
 					</group>
 
 				</form>
@@ -36,7 +36,7 @@
 					<field name="precio" />
 					<field name="conciertos" />
 					<field name="exterior" />
-					<field name="eventos_ids" />
+					<field name="evento_ids" />
 				</tree>
 			</field>
 		</record>
