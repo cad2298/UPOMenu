@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<!-- Vista de formulario -->
+		<record model="ir.ui.view" id="upomenu_evento_form_view">
+			<field name="name">view_UPOMenu_evento_form</field>
+			<field name="model">evento</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="form_string">
+
+					<group colspan="2">
+						<field name="name" colspan="1" />
+						<field name="cliente_id"/>
+						<field name="fecha" />
+						<field name="lugar" />
+						<field name="numComensales" />
+						<field name="numEmpleados" />
+						<field name="duracion" />
+						<field name="tipo" />
+						<field name="menu_ids" />
+						<field name="finca_id" />
+					</group>
+
+				</form>
+			</field>
+		</record>
+
+		<!-- Vista de Arbol -->
+		<record model="ir.ui.view" id="view_UPOMenu_evento_tree">
+			<field name="name">view_UPOMenu_evento_view</field>
+			<field name="model">evento</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="tree_string">
+					<field name="name" colspan="1" />
+					<field name="cliente_id"/>
+					<field name="fecha" />
+					<field name="lugar" />
+					<field name="numComensales" />
+					<field name="numEmpleados" />
+					<field name="duracion" />
+					<field name="tipo" />
+					<field name="menu_ids" />
+					<field name="finca_id" />
+				</tree>
+			</field>
+		</record>
+
+		<!-- Vista de Búsqueda -->
+		<record model="ir.ui.view" id="view_UPOMenu_evento_search">
+			<field name="name">view_UPOMenu_evento_search</field>
+			<field name="model">evento</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Eventos">
+					<group expand="0" string="Agrupar por...">
+						<filter string="Tipo" context="{'group_by':'tipo'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<!-- Action -->
+		<record id="act_evento" model="ir.actions.act_window">
+			<field name="name">Eventos</field>
+			<field name="res_model">evento</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem name="Eventos" id="eventos_submenu" parent="UpoMenu"
+			sequence="130" />
+		<menuitem name="Ver eventos" id="ver_eventos_submenu"
+			parent="eventos_submenu" sequence="110" action="act_evento" />
+
+	</data>
+</openerp>
