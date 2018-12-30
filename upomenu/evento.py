@@ -40,7 +40,7 @@ class evento(osv.Model):
                                     ('otro', 'Otro')],'Tipo'),
             'menu_ids':fields.many2many('menu', 'menu_evento_rel', 'evento_id', 'menu_id', 'Menus'),
             # 'personal_ids':fields.many2many('personal','personal_evento_rel','evento_id','personal_id','Personal'),
-            # 'cliente_id':fields.many2one('cliente','Cliente'),
-            # 'finca_id':fields.many2one('finca','Finca'),           
+            'cliente_id':fields.many2one('cliente','Cliente'),
+            'finca_id':fields.many2one('finca','Finca'),           
             
         }
