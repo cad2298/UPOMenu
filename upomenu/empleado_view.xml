@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="view_UPOMenu_empleado_form">
+			<field name="name">view_UPOMenu_empleado_form</field>
+			<field name="model">empleado</field>
+			<field name="inherit_id" ref="UPOMenu.view_UPOMenu_personal_form" />
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<data>
+					<field name="numEventosRealizados" position="after">
+						<field name="encargado_id" />
+					</field>
+				</data>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="view_UPOMenu_empleado_tree">
+			<field name="name">view_UPOMenu_empleado_tree</field>
+			<field name="model">empleado</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="tree_string">
+					<field name="name" />
+					<field name="dni" />
+					<field name="telefono" />
+					<field name="email" />
+					<field name="numEventosRealizados" />
+					<field name="encargado_id" />
+				</tree>
+			</field>
+		</record>
+
+		<!-- Action -->
+		<record id="act_empleado" model="ir.actions.act_window">
+			<field name="name">Empleados</field>
+			<field name="res_model">empleado</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		
+		<menuitem name="Ver empleados" id="ver_empleado_submenu"
+			parent="personal_submenu" sequence="120" action="act_empleado" />
+	</data>
+</openerp>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="view_UPOMenu_cocinero_form">
+			<field name="name">view_UPOMenu_cocinero_form</field>
+			<field name="model">cocinero</field>
+			<field name="inherit_id" ref="UPOMenu.view_UPOMenu_personal_form" />
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<data>
+					<field name="numEventosRealizados" position="after">
+						<field name="rango" />
+					</field>
+				</data>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="view_UPOMenu_cocinero_tree">
+			<field name="name">view_UPOMenu_cocinero_tree</field>
+			<field name="model">cocinero</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="tree_string">
+					<field name="name" />
+					<field name="dni" />
+					<field name="telefono" />
+					<field name="email" />
+					<field name="numEventosRealizados" />
+					<field name="rango" />
+				</tree>
+			</field>
+		</record>
+
+		<!-- Action -->
+		<record id="act_cocinero" model="ir.actions.act_window">
+			<field name="name">Cocinero</field>
+			<field name="res_model">cocinero</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem name="Ver cocineros" id="ver_cocinero_submenu"
+			parent="personal_submenu" sequence="130" action="act_cocinero" />
+	</data>
+</openerp>
