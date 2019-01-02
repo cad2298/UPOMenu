@@ -1,4 +1,3 @@
-
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
@@ -24,27 +23,14 @@
 from osv import osv
 from osv import fields
 
-class finca(osv.Model):
+class calendario_de_menus(osv.Model):
 
-    _name = 'finca'
-    _description = 'Fincas.'
+    _name = 'calendario_de_menus'
+    _description = 'Calendario de menus para usar en comedores.'
  
     _columns = {
             'name':fields.char('Nombre', size=64, required=True),
-            'ubicacion':fields.char('Ubicación', size=256, required=True),
-            'aforo':fields.integer('Aforo'),
-            'precio':fields.integer('Precio'),
-            'conciertos':fields.boolean('Admite conciertos'),
-            'exterior':fields.boolean('Exterior'),
-            'evento_ids':fields.one2many('evento','finca_id','Eventos'),
-                        
-        }
-    def _check_price(self, cr, uid, ids): 
-        
-        for clase in self.browse(cr, uid, ids):
-            if clase.price <=0:
-                return False
-        return True
-    
-    _constraints = [(_check_price, 'Error: precio erroneo', ['price']), ] 
-    
+            'menu_ids':fields.one2many('menu', 'calendario_de_menus_id', 'Menus'),
+            #'comedor_ids':fields.one2many('comedor', 'calendario_de_menus_id', 'Comedores'),
+            }
+            

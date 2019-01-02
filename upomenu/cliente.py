@@ -33,6 +33,5 @@ class cliente(osv.Model):
             'telefono':fields.integer('Telefono'),
             'email':fields.char('Correo', size=128),
             'identificador':fields.integer('Id'),
-            'evento_ids':fields.one2many('evento','cliente_id','Eventos', Readonly=True),
-            
-        }
+            'evento_ids':fields.one2many('evento', 'cliente_id', 'Eventos', Readonly=True),
+            }

@@ -35,3 +35,15 @@ class bebida(osv.Model):
             'bebidasmenu_ids':fields.one2many('bebidasmenu','bebida_id','Cantidad'),
             
         }
+    
+    _sql_constraints=[('name_uniq','unique (name)','El nombre de la clase ya existe')] 
+    
+    
+    def _check_price(self, cr, uid, ids): 
+        
+        for clase in self.browse(cr, uid, ids):
+            if clase.price <=0 or clase.price >50:
+                return False
+        return True
+    _constraints = [(_check_price, 'Error: precio erroneo', ['price']), ] 
+    

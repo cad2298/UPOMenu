@@ -35,3 +35,11 @@ class platosmenu(osv.Model):
             'plato_id':fields.many2one('plato','Platos'),
             
         }
+    def _check_cantidad(self, cr, uid, ids): 
+        
+        for clase in self.browse(cr, uid, ids):
+            if clase.price <=0:
+                return False
+        return True
+    _constraints = [(_check_cantidad, 'Error: cantidad erronea', ['price']), ] 
+    

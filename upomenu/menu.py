@@ -23,17 +23,56 @@
 from osv import osv
 from osv import fields
 
-class menuclass(osv.Model):
+class menu(osv.Model):
 
     _name = 'menu'
     _description = 'Menus.'
- 
+    
+    def precioTotal(self, cr,uid,ids,field,arg,context=None):
+        res ={},
+        suma=0.0,
+        for clase in self.browse(cr,uid,ids,context=context):
+            cantidadB=res[clase.bebidasmenu_ids]
+            cantidadC=res[clase.platosmenu_ids.cantidad]
+            
+            precioC=res[clase.bebidasmenu_ids.platosmenu_id.price]
+            precioB=res[clase.bebidasmenu_ids.bebida_id.price]
+            
+            suma=suma+cantidadB*precioB+precioC*cantidadC
+            
+        return suma  
+    
     _columns = {
-            'name':fields.char('Nombre', size=64, required=False, readonly=False, Translate=False),
-            'price':fields.integer('Precio'),
-            'event_ids':fields.many2many('evento', 'evento_menu_rel', 'menu_id', 'evento_id', 'Eventos'),
+            'name':fields.char('Nombre', size=64, required=True, readonly=False, Translate=False),
+            
+            'price': fields.integer('Precio'),
+            'evento_ids':fields.many2many('evento', 'evento_menu_rel', 'menu_id', 'evento_id', 'Eventos'),
             'platosmenu_ids':fields.one2many('platosmenu', 'menu_id', 'Platos del menu'),
             'bebidasmenu_ids':fields.one2many('bebidasmenu', 'menu_id', 'Bebidas del menu'),
-            #'calendario_ids':fields.many2one('calendario', 'Calendario'),
-            
-        }
+            'calendario_de_menus_id':fields.many2one('calendario_de_menus', 'Calendario de menus'),
+            'state':fields.selection([('nuevo', 'Nuevo'), ('aprobado', 'Aprobado'), ('rechazado', 'Rechazado')], 'Estados'),
+    }
+    _defaults = {'state':'nuevo'}
+        
+    def _check_price(self, cr, uid, ids): 
+        
+        for clase in self.browse(cr, uid, ids):
+            if clase.price <=0:
+                return False
+        return True
+    
+    
+    def _check_name(self, cr, uid, ids):
+        for clase in self.browse(cr, uid, ids):
+            myString=clase.name
+            if myString and myString.strip():
+        #myString is not None AND myString is not empty or blank
+                return False
+        return True
+        
+    _constraints = [(_check_price, 'El precio no puede ser nulo', ['price']),
+                    #(_check_name, 'Nombre no válido', ['name']),
+                    ]
+    
+    _sql_constraints=[('name_uniq','unique (name)','El nombre del menu ya existe'),
+                      ]  

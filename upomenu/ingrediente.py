@@ -37,6 +37,7 @@ class ingrediente(osv.Model):
                                      ('nueces', 'Nueces'),
                                      ('lacteos', 'Lácteos'),
                                      ], 'Alérgeno'),
+            
             'plato_ids':fields.many2many('plato','plato_ingrediente_rel','ingrediente_id','plato_id','Platos'),
         }
             

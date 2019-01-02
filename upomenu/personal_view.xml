@@ -45,7 +45,7 @@
 		</record>
 
 		<!-- Action -->
-		<record id="act_comedor" model="ir.actions.act_window">
+		<record id="act_personal" model="ir.actions.act_window">
 			<field name="name">Personal</field>
 			<field name="res_model">personal</field>
 			<field name="view_type">form</field>
@@ -55,6 +55,6 @@
 		<menuitem name="Personal" id="personal_submenu" parent="UpoMenu"
 			sequence="120" action="act_personal" />
 		<menuitem name="Ver personal" id="ver_personal_submenu"
-			parent="comedor_submenu" sequence="100" action="act_personal" />
+			parent="personal_submenu" sequence="100" action="act_personal" />
 	</data>
 </openerp>

@@ -40,3 +40,11 @@ class plato(osv.Model):
             'platosmenu_ids':fields.one2many('platosmenu','plato_id','platomenu'),
         }
             
+    def _check_price(self, cr, uid, ids): 
+        
+        for clase in self.browse(cr, uid, ids):
+            if clase.price <=0 or clase.price >50:
+                return False
+        return True
+    _constraints = [(_check_price, 'Error: precio erroneo', ['price']), ] 
+    

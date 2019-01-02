@@ -21,6 +21,8 @@
 ##############################################################################
 from osv import osv
 from osv import fields
+from datetime import datetime
+from dateutil import parser
 
 class evento(osv.Model):
     _name = 'evento'
@@ -39,8 +41,21 @@ class evento(osv.Model):
                                     ('aniversaio', 'Aniversario'),
                                     ('otro', 'Otro')],'Tipo'),
             'menu_ids':fields.many2many('menu', 'menu_evento_rel', 'evento_id', 'menu_id', 'Menus'),
-            # 'personal_ids':fields.many2many('personal','personal_evento_rel','evento_id','personal_id','Personal'),
+            'personal_ids':fields.many2many('personal','personal_evento_rel','evento_id','personal_id','Personal'),
             'cliente_id':fields.many2one('cliente','Cliente'),
-            'finca_id':fields.many2one('finca','Finca'),           
-            
+            'finca_id':fields.many2one('finca','Finca'),
         }
+    
+    _sql_constraints=[('name_uniq','unique (name)','El nombre de la clase ya existe')]
+    
+    def _check_date(self, cr, uid, ids): 
+        
+        for clase in self.browse(cr, uid, ids):
+            if parser.parse(clase.fecha) < datetime.now():
+                return False
+        return True
+    _constraints = [(_check_date, 'Error: Fecha erronea', ['fecha']), ] 
+    
+    
+     
+    

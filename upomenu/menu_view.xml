@@ -7,8 +7,18 @@
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="Menus">
+					<!-- Workflow -->
+					<field name='state' widget='statusbar' statusbar_visible="nuevo,aceptado,rechazado"
+						statusbar_colors='{"solicitante":"orange","aceptado": "green","rechazado": "red"}' />
+					<button name="aceptar" states="nuevo" string="Aceptar"
+						colspan="1" icon="gtk-apply" />
+					<button name="rechazar" states="nuevo" string="Rechazar"
+						colspan="1" icon="gtk-cancel" />
+
+					<newline></newline>
+
 					<field name="name" />
-					<newline/>
+					<newline />
 					<field name="price" />
 					<newline />
 					<notebook colspan="2">
