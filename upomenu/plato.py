@@ -43,8 +43,8 @@ class plato(osv.Model):
     def _check_price(self, cr, uid, ids): 
         
         for clase in self.browse(cr, uid, ids):
-            if clase.price <=0 or clase.price >50:
+            if clase.precio <=0:
                 return False
         return True
-    _constraints = [(_check_price, 'Error: precio erroneo', ['price']), ] 
+    _constraints = [(_check_price, 'Error: El precio introducido no puede ser negativo.', ['precio']), ] 
     
