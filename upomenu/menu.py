@@ -50,9 +50,10 @@ class menu(osv.Model):
             'platosmenu_ids':fields.one2many('platosmenu', 'menu_id', 'Platos del menu'),
             'bebidasmenu_ids':fields.one2many('bebidasmenu', 'menu_id', 'Bebidas del menu'),
             'calendario_de_menus_id':fields.many2one('calendario_de_menus', 'Calendario de menus'),
-            'state':fields.selection([('nuevo', 'Nuevo'), ('aprobado', 'Aprobado'), ('rechazado', 'Rechazado')], 'Estados'),
+            'state':fields.selection([('nuevo', 'Nuevo'), ('completado', 'Completado'), ('aprobado', 'Aprobado'), ('rechazado', 'Rechazado')], 'Estado'),
     }
     _defaults = {'state':'nuevo'}
+    
         
     def _check_price(self, cr, uid, ids): 
         

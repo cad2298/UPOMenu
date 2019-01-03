@@ -31,7 +31,7 @@
     'update_xml': [],
     'demo_xml': [],
     'data': ['menu_view.xml','evento_view.xml','bebida_view.xml', 'plato_view.xml', 'ingrediente_view.xml', 'platosmenu_view.xml','bebidasmenu_view.xml','comedor_view.xml',
-             'personal_view.xml','finca_view.xml','cliente_view.xml','calendario_de_menus_view.xml'],
+             'personal_view.xml','finca_view.xml','cliente_view.xml','calendario_de_menus_view.xml','workflow/menu_workflow.xml'],
     'installable': True,
     'active': False,
 #    'certificate': 'certificate',

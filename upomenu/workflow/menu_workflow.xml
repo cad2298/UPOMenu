@@ -14,29 +14,45 @@
 			<field name="name">Nuevo</field>
 			<field name="kind">dummy</field>
 		</record>
+		<record id="act_menu_completado" model="workflow.activity">
+			<field name="wkf_id" ref="wkf_menu" />
+			<field name="name">Completado</field>
+			<field name="kind">function</field>
+			<field name="action">write({'state':'completado'})</field>
+		</record>
 		<record id="act_menu_aprobado" model="workflow.activity">
-			<field name="wkf_id" ref="wkf_gymuser" />
+			<field name="wkf_id" ref="wkf_menu" />
 			<field name="name">Aprobado</field>
 			<field name="kind">function</field>
-			<field name="action">write({'state':'aprobado'}) </field>
+			<field name="action">write({'state':'aprobado'})</field>
 		</record>
 		<record id="act_menu_rechazado" model="workflow.activity">
-			<field name="wkf_id" ref="wkf_gymuser" />
-			<field name="name">Cancelado</field>
+			<field name="wkf_id" ref="wkf_menu" />
+			<field name="name">Rechazado</field>
 			<field name="kind">function</field>
-			<field name="action">write({'state':'rechazado'}) </field>
+			<field name="action">write({'state':'rechazado'})</field>
 			<field name="flow_stop">True</field>
 		</record>
 		<!-- Declaración de las transiciones -->
-		<record id="trans_nuevo_aprobado" model="workflow.transition">
+		<record id="trans_nuevo_completado" model="workflow.transition">
 			<field name="act_from" ref="act_menu_nuevo" />
+			<field name="act_to" ref="act_menu_completado" />
+			<field name="signal">completar</field>
+		</record>
+		<record id="trans_completado_aprobado" model="workflow.transition">
+			<field name="act_from" ref="act_menu_completado" />
 			<field name="act_to" ref="act_menu_aprobado" />
 			<field name="signal">aprobar</field>
 		</record>
-		<record id="trans_nuevo_rechazado" model="workflow.transition">
-			<field name="act_from" ref="act_menu_nuevo" />
+		<record id="trans_completado_rechazado" model="workflow.transition">
+			<field name="act_from" ref="act_menu_completado" />
 			<field name="act_to" ref="act_menu_rechazado" />
-			<field name="signal">cancelar</field>
+			<field name="signal">rechazar</field>
+		</record>
+		<record id="trans_aprobado_rechazado" model="workflow.transition">
+			<field name="act_from" ref="act_menu_aprobado" />
+			<field name="act_to" ref="act_menu_rechazado" />
+			<field name="signal">rechazar</field>
 		</record>
 	</data>
 </openerp>

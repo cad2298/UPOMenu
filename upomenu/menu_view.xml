@@ -7,19 +7,9 @@
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="Menus">
-					<!-- Workflow -->
-					<field name='state' widget='statusbar' statusbar_visible="nuevo,aceptado,rechazado"
-						statusbar_colors='{"solicitante":"orange","aceptado": "green","rechazado": "red"}' />
-					<button name="aceptar" states="nuevo" string="Aceptar"
-						colspan="1" icon="gtk-apply" />
-					<button name="rechazar" states="nuevo" string="Rechazar"
-						colspan="1" icon="gtk-cancel" />
-
-					<newline></newline>
-
-					<field name="name" />
+					<field name="name" colspan="2" />
 					<newline />
-					<field name="price" />
+					<field name="price" colspan="2" />
 					<newline />
 					<notebook colspan="2">
 						<page string="Platos">
@@ -29,6 +19,22 @@
 							<field name="bebidasmenu_ids" nolabel="1" />
 						</page>
 					</notebook>
+
+					<newline></newline>
+
+					<!-- Workflow -->
+					<field name='state' widget='statusbar' statusbar_visible="nuevo,aprobado,rechazado"
+						statusbar_colors='{"solicitante":"orange","completado": "orange","aprobado": "green","rechazado": "red"}' />
+					<group colspan="4" col="3">
+						<button name="completar" states="nuevo" string="Completar"
+							colspan="1" icon="gtk-apply" />
+						<button name="aprobar" states="completado" string="Aprobar"
+							colspan="1" icon="gtk-apply" />
+						<button name="rechazar" states="completado" string="Rechazar"
+							colspan="1" icon="gtk-cancel" />
+						<button name="rechazar" states="aprobado" string="Rechazar"
+							colspan="1" icon="gtk-cancel" />
+					</group>
 				</form>
 			</field>
 		</record>
