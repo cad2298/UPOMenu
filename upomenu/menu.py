@@ -36,6 +36,8 @@ class menu(osv.Model):
             res[menu.id] = len(menu.evento_ids)
         return    res
     
+    
+    
     _columns = {
             'name':fields.char('Nombre', size=64, required=True, readonly=False, Translate=False),
             'price': fields.float('Precio'),
@@ -48,6 +50,9 @@ class menu(osv.Model):
     }
     _defaults = {'state':'nuevo'}
     
+    def regulate_price(self,cr,uid,ids,precio):
+        if precio > 200:
+            self.write(cr,uid,ids,{'price':'200'})
         
     def _check_price(self, cr, uid, ids): 
         

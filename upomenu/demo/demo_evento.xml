@@ -11,6 +11,7 @@
 			<field name="numEmpleados">6</field>
 			<field name="tipo">boda</field>
 			<field name="state">pendiente</field>
+			<field name="menu_ids" eval="[(6, 0, [menu1,menu2])]"></field>
 			<field name="cliente_id" ref="cliente1"></field>
 			<field name="finca_id" ref="finca1"></field>
 		</record>
@@ -24,6 +25,7 @@
 			<field name="numEmpleados">7</field>
 			<field name="tipo">otro</field>
 			<field name="state">realizado</field>
+			<field name="menu_ids" eval="[(6, 0, [menu1])]"></field>
 			<field name="cliente_id" ref="cliente2"></field>
 		</record>
 	</data>

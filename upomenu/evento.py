@@ -52,6 +52,22 @@ class evento(osv.Model):
     _defaults = {'state':'nuevo'}
     _sql_constraints = [('name_uniq', 'unique (name)', 'El nombre de la clase ya existe')]
     
+    def reset_data(self,cr,uid,ids,context=None):
+        resultado = self
+        resultado.write(cr,uid,ids,{'price':'0'}, context=None)
+        resultado.write(cr,uid,ids,{'fecha':datetime.now()}, context=None)
+        resultado.write(cr,uid,ids,{'duracion':'1'}, context=None)
+        resultado.write(cr,uid,ids,{'lugar':''}, context=None)
+        resultado.write(cr,uid,ids,{'numComensales':'0'}, context=None)
+        resultado.write(cr,uid,ids,{'numEmpleados':'0'}, context=None)
+        resultado.write(cr,uid,ids,{'tipo':''}, context=None)
+        resultado.write(cr,uid,ids,{'state':'nuevo'}, context=None)
+        resultado.write(cr,uid,ids,{'menu_ids':[ (5,  ) ]}, context=None)
+        resultado.write(cr,uid,ids,{'personal_ids':[ (5,  ) ]}, context=None)
+        resultado.write(cr,uid,ids,{'cliente_id':''}, context=None)
+        resultado.write(cr,uid,ids,{'finca_id':''}, context=None)
+        return resultado
+    
     def _check_date_start(self, cr, uid, ids):
         for evento in self.browse(cr, uid, ids):
             if not evento:
@@ -66,7 +82,7 @@ class evento(osv.Model):
         return True
         
     _constraints = [(_check_price, 'El precio no puede ser negativo.', ['price']),
-                    (_check_date_start, 'Error: La fecha de inicio no puede ser anterior a la actual.', ['fecha']),] 
+                    (_check_date_start, 'Error: La fecha de inicio no puede ser anterior a la actual.', ['fecha']), ] 
     
     
      

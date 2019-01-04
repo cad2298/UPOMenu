@@ -8,7 +8,9 @@
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="form_string">
-
+					<button name="reset_data" string="Resetar datos" type="object"
+						confirm="¿Seguro que desea resetear los datos?"></button>
+					<newline></newline>
 					<group colspan="2" col="2">
 						<field name="name" colspan="2" />
 						<field name="price" />
@@ -34,7 +36,8 @@
 					<field name='state' widget='statusbar'
 						statusbar_visible="nuevo,presupuesto,negociacion,pendiente,pagado,devolucion,realizado,cancelado"
 						statusbar_colors='{"nuevo":"blue","presupuesto": "orange","negociacion": "orange","pendiente": "orange","pagado": "orange"
-						,"devolucion": "orange","realizado": "green","cancelado": "red"}' colspan="4" />
+						,"devolucion": "orange","realizado": "green","cancelado": "red"}'
+						colspan="4" />
 					<group colspan="4" col="1">
 						<button name="presupuestar" states="nuevo" string="Presupuestar"
 							colspan="1" icon="gtk-go-forward" />
@@ -115,13 +118,27 @@
 				</calendar>
 			</field>
 		</record>
-
+		<!-- Gantt View -->
+		<record model="ir.ui.view" id="view_UPOMenu_evento_gantt">
+			<field name="name">view_UPOMenu_evento_gantt</field>
+			<field name="model">evento</field>
+			<field name="type">gantt</field>
+			<field name="arch" type="xml">
+				<gantt color="tipo" date_delay="duracion" date_start="fecha"
+					string="Tasks">
+					<level object="cliente" link="cliente_id" domain="[]">
+						<field name="name" />
+					</level>
+				</gantt>
+			</field>
+		</record>
+		
 		<!-- Action -->
 		<record id="act_evento" model="ir.actions.act_window">
 			<field name="name">Eventos</field>
 			<field name="res_model">evento</field>
 			<field name="view_type">form</field>
-			<field name="view_mode">tree,form,calendar</field>
+			<field name="view_mode">tree,form,calendar,gantt</field>
 		</record>
 
 		<menuitem id="UpoMenu" name="UPOMenu" action="act_evento" />
