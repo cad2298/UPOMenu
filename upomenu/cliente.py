@@ -30,8 +30,16 @@ class cliente(osv.Model):
  
     _columns = {
             'name':fields.char('Nombre', size=64, required=True),
-            'telefono':fields.integer('Telefono'),
+            'telefono':fields.char('Telefono',size=9,required=True),
             'email':fields.char('Correo', size=128),
             'identificador':fields.integer('Id'),
             'evento_ids':fields.one2many('evento', 'cliente_id', 'Eventos', Readonly=True),
             }
+    def _check_mobile(self, cr, uid, ids, context=None):
+        for obj in self.browse(cr, uid, ids, context=context):
+            if not obj.telefono.isdigit():
+                return False
+        return True
+ 
+    _constraints = [(_check_mobile, 'Formato Incorrecto de teléfono', ['telefono'])]
+    

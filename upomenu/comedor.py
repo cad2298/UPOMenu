@@ -30,9 +30,13 @@ class comedor(osv.Model):
  
     _columns = {
             'name':fields.char('Nombre', size=64, required=True, readonly=False),
-            'ubicacion':fields.char('Ubicación'),
+            'ubicacion':fields.char('Ubicación',required=True),
             'email':fields.char('Email', size=64),
             'calendario_de_menus_id':fields.many2one('calendario_de_menus','Calendario'),
             'personal_ids':fields.many2many('personal','comedor_personal_rel','comedor_id','personal_id','Personal'),
             }
             
+    _sql_constraints = [     ('name_uniq', 'unique (name)', 'The Name of the OpenERPModel must be unique !'),
+                             ('ubicacion_uniq', 'unique (name)', 'The Name of the OpenERPModel must be unique !'),
+                                  ]
+    

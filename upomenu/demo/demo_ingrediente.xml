@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<record id="6" model="ingrediente">
+			<field name="name">Hierbabuena</field>
+			<field name="alergeno">no</field>
+		</record>
+		<record id="7" model="ingrediente">
+			<field name="name">Harina</field>
+			<field name="alergeno">gluten</field>
+		</record>
+		<record id="8" model="ingrediente">
+			<field name="name">Gamba</field>
+			<field name="alergeno">crustaceo</field>
+		</record>
+	</data>
+</openerp>
+

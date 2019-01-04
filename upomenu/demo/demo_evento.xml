@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="9" model="evento">
+            <field name="name">Mangafest</field>
+            <field name="fecha">9/10/2018</field>
+            <field name="fecha_fin">11/10/2018</field>
+            <field name="lugar">C/Condes de Bustillo</field>
+            <field name="numComensales">100</field>
+            <field name="numEmpleados">100</field>
+            <field name="duracion">100</field>
+                   
+        </record>
+        <record id="10" model="evento">
+            <field name="name">Mangafest</field>
+            <field name="fecha">9/10/2018</field>
+            <field name="fecha_fin">11/10/2018</field>
+            <field name="lugar">C/Condes de Bustillo</field>
+            <field name="numComensales">100</field>
+            <field name="numEmpleados">100</field>
+            <field name="duracion">100</field>
+
+        <record id="11" model="evento">
+            <field name="name">Mangafest</field>
+            <field name="fecha">9/10/2018</field>
+            <field name="fecha_fin">11/10/2018</field>
+            <field name="lugar">C/Condes de Bustillo</field>
+            <field name="numComensales">100</field>
+            <field name="numEmpleados">100</field>
+            <field name="duracion">100</field>
+                   
+        </record>
+        <record id="12" model="evento">
+            <field name="name">Mangafest</field>
+            <field name="fecha">9/10/2018</field>
+            <field name="fecha_fin">11/10/2018</field>
+            <field name="lugar">C/Condes de Bustillo</field>
+            <field name="numComensales">100</field>
+            <field name="numEmpleados">100</field>
+            <field name="duracion">100</field>
+                   
+        </record>
+
+                   
+        </record>
+    </data>
+</openerp>

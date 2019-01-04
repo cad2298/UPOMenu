@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="1" model="bebida">
+            <field name="name">Cocacola</field>
+            <field name="price">1.20</field>
+            <field name="gaseosa">True</field>
+            <field name="azucarada">True</field>       
+        </record>
+        <record id="2" model="bebida">
+            <field name="name">Fanta</field>
+            <field name="price">0.60</field>
+            <field name="gaseosa">True</field>
+            <field name="azucarada">True</field>       
+        </record>
+        <record id="3" model="bebida">
+            <field name="name">Nestea</field>
+            <field name="price">1.20</field>
+            <field name="azucarada">True</field>       
+        </record>
+        <record id="4" model="bebida">
+            <field name="name">Cocacola Zero</field>
+            <field name="price">1.20</field>
+            <field name="gaseosa">False</field>   
+        </record>
+    </data>
+</openerp>
+

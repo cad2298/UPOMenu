@@ -47,4 +47,3 @@ class finca(osv.Model):
         return True
     
     _constraints = [(_check_price, 'Error: precio erroneo', ['price']), ] 
-    
