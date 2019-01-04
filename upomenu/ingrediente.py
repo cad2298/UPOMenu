@@ -40,4 +40,6 @@ class ingrediente(osv.Model):
             
             'plato_ids':fields.many2many('plato','plato_ingrediente_rel','ingrediente_id','plato_id','Platos'),
         }
+    
+    _sql_constraints=[('name_uniq','unique (name)','El nombre de la clase ya existe')]
             

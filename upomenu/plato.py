@@ -39,6 +39,8 @@ class plato(osv.Model):
             'ingrediente_ids':fields.many2many('ingrediente','plato_ingrediente_rel','plato_id','ingrediente_id','Ingredientes'),
             'platosmenu_ids':fields.one2many('platosmenu','plato_id','platomenu'),
         }
+    
+    _sql_constraints=[('name_uniq','unique (name)','El nombre de la clase ya existe')]
             
     def _check_price(self, cr, uid, ids): 
         

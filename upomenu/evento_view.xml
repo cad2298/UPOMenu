@@ -9,10 +9,12 @@
 			<field name="arch" type="xml">
 				<form string="form_string">
 
-					<group colspan="2">
+					<group colspan="4">
 						<field name="name" colspan="1" />
-						<field name="cliente_id"/>
+						<field name="price" />
+						<field name="cliente_id" />
 						<field name="fecha" />
+						<field name="fecha_fin" />
 						<field name="lugar" />
 						<field name="numComensales" />
 						<field name="numEmpleados" />
@@ -22,6 +24,39 @@
 						<field name="finca_id" />
 					</group>
 
+					<!-- Workflow -->
+					<field name='state' widget='statusbar'
+						statusbar_visible="nuevo,presupuesto,negociacion,pendiente,pagado,devolucion,realizado,cancelado"
+						statusbar_colors='{"nuevo":"blue","presupuesto": "orange","negociacion": "orange","pendiente": "orange","pagado": "orange"
+						,"devolucion": "orange","realizado": "green","cancelado": "red"}' />
+					<group colspan="4" col="1" >
+						<button name="presupuestar" states="nuevo" string="Presupuestar"
+							colspan="1" icon="gtk-go-forward" />
+						<button name="negociar" states="presupuesto" string="Negociación"
+							colspan="1" icon="gtk-go-forward" />
+						<button name="cancelar" states="presupuesto" string="Cancelar evento"
+							colspan="1" icon="gtk-cancel" confirm="¿Quiere cancelar el evento?" />
+						<button name="pendiente" states="negociacion" string="Pendiente de pago"
+							colspan="1" icon="gtk-go-forward" />
+						<button name="presupuestar" states="negociacion" string="Volver a presupuestar"
+							colspan="1" icon="gtk-go-back" />
+						<button name="cancelar" states="negociacion" string="Cancelar evento"
+							colspan="1" icon="gtk-cancel" confirm="¿Quiere cancelar el evento?" />
+						<button name="pagar" states="pendiente" string="Confirmar pago"
+							colspan="1" icon="gtk-go-forward" />
+						<button name="presupuestar" states="pendiente" string="Volver a presupuestar"
+							colspan="1" icon="gtk-go-back" />
+						<button name="cancelar" states="pendiente" string="Cancelar evento"
+							colspan="1" icon="gtk-cancel" confirm="¿Quiere cancelar el evento?" />
+						<button name="realizar" states="pagado" string="Realizar evento"
+							colspan="1" icon="gtk-apply" confirm="¿Quiere dar por realizado el evento?" />
+						<button name="devolver" states="pagado" string="Devolver dinero"
+							colspan="1" icon="gtk-go-back" />
+						<button name="presupuestar" states="devolucion" string="Volver a presupuestar"
+							colspan="1" icon="gtk-go-back" />
+						<button name="cancelar" states="devolucion" string="Cancelar evento"
+							colspan="1" icon="gtk-cancel" confirm="¿Quiere cancelar el evento?" />
+					</group>
 				</form>
 			</field>
 		</record>
@@ -34,8 +69,9 @@
 			<field name="arch" type="xml">
 				<tree string="tree_string">
 					<field name="name" colspan="1" />
-					<field name="cliente_id"/>
-					<field name="fecha" />
+					<field name="price" />
+					<field name="cliente_id" />
+					<field name="fecha_fin" />
 					<field name="lugar" />
 					<field name="numComensales" />
 					<field name="numEmpleados" />
@@ -61,18 +97,32 @@
 			</field>
 		</record>
 
+		<!-- Calendar View -->
+		<record model="ir.ui.view" id="view_UPOMenu_evento_calendar">
+			<field name="name">view_UPOMenu_evento_calendar</field>
+			<field name="model">evento</field>
+			<field name="type">calendar</field>
+			<field name="arch" type="xml">
+				<calendar string="Eventos" color="tipo" date_start="fecha"
+					date_stop="fecha_fin">
+					<field name="name" />
+					<field name="lugar" />
+				</calendar>
+			</field>
+		</record>
+
 		<!-- Action -->
 		<record id="act_evento" model="ir.actions.act_window">
 			<field name="name">Eventos</field>
 			<field name="res_model">evento</field>
 			<field name="view_type">form</field>
-			<field name="view_mode">tree,form</field>
+			<field name="view_mode">tree,form,calendar</field>
 		</record>
 
 		<menuitem name="Eventos" id="eventos_submenu" parent="UpoMenu"
 			sequence="130" />
-		<menuitem name="Ver eventos" id="ver_eventos_submenu"
-			parent="eventos_submenu" sequence="110" action="act_evento" />
+		<menuitem name="Ver eventos" id="ver_eventos_submenu" parent="eventos_submenu"
+			sequence="110" action="act_evento" />
 
 	</data>
 </openerp>

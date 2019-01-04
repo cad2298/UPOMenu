@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<!-- Declaración del workflow -->
+		<record id="wkf_evento" model="workflow">
+			<field name="name">evento.wkf</field>
+			<field name="osv">evento</field>
+			<field name="on_create">True</field>
+		</record>
+		
+		<!-- Declaración de nodos -->
+		<record id="act_evento_nuevo" model="workflow.activity">
+			<field name="wkf_id" ref="wkf_evento" />
+			<field name="flow_start">True</field>
+			<field name="name">Nuevo</field>
+			<field name="kind">dummy</field>
+		</record>
+		<record id="act_evento_presupuesto" model="workflow.activity">
+			<field name="wkf_id" ref="wkf_evento" />
+			<field name="name">Presupuesto</field>
+			<field name="kind">function</field>
+			<field name="action">write({'state':'presupuesto'})</field>
+		</record>
+		<record id="act_evento_negociacion" model="workflow.activity">
+			<field name="wkf_id" ref="wkf_evento" />
+			<field name="name">Negociación</field>
+			<field name="kind">function</field>
+			<field name="action">write({'state':'negociacion'})</field>
+		</record>
+		<record id="act_evento_pendiente" model="workflow.activity">
+			<field name="wkf_id" ref="wkf_evento" />
+			<field name="name">Pendiente</field>
+			<field name="kind">function</field>
+			<field name="action">write({'state':'pendiente'})</field>
+		</record>
+		<record id="act_evento_pagado" model="workflow.activity">
+			<field name="wkf_id" ref="wkf_evento" />
+			<field name="name">Pagado</field>
+			<field name="kind">function</field>
+			<field name="action">write({'state':'pagado'})</field>
+		</record>
+		<record id="act_evento_devolucion" model="workflow.activity">
+			<field name="wkf_id" ref="wkf_evento" />
+			<field name="name">Devolucion</field>
+			<field name="kind">function</field>
+			<field name="action">write({'state':'devolucion'})</field>
+		</record>
+		<record id="act_evento_realizado" model="workflow.activity">
+			<field name="wkf_id" ref="wkf_evento" />
+			<field name="name">Realizado</field>
+			<field name="kind">function</field>
+			<field name="action">write({'state':'realizado'})</field>
+			<field name="flow_stop">True</field>
+		</record>
+		<record id="act_evento_cancelado" model="workflow.activity">
+			<field name="wkf_id" ref="wkf_evento" />
+			<field name="name">Cancelado</field>
+			<field name="kind">function</field>
+			<field name="action">write({'state':'cancelado'})</field>
+			<field name="flow_stop">True</field>
+		</record>
+		
+		<!-- Declaración de las transiciones -->
+		<record id="trans_nuevo_presupuesto" model="workflow.transition">
+			<field name="act_from" ref="act_evento_nuevo" />
+			<field name="act_to" ref="act_evento_presupuesto" />
+			<field name="signal">presupuestar</field>
+		</record>
+		<record id="trans_presupuesto_cancelado" model="workflow.transition">
+			<field name="act_from" ref="act_evento_presupuesto" />
+			<field name="act_to" ref="act_evento_cancelado" />
+			<field name="signal">cancelar</field>
+		</record>
+		<record id="trans_presupuesto_negociacion" model="workflow.transition">
+			<field name="act_from" ref="act_evento_presupuesto" />
+			<field name="act_to" ref="act_evento_negociacion" />
+			<field name="signal">negociar</field>
+		</record>
+		<record id="trans_negociacion_presupuesto" model="workflow.transition">
+			<field name="act_from" ref="act_evento_negociacion" />
+			<field name="act_to" ref="act_evento_presupuesto" />
+			<field name="signal">presupuestar</field>
+		</record>
+		<record id="trans_negociacion_cancelado" model="workflow.transition">
+			<field name="act_from" ref="act_evento_negociacion" />
+			<field name="act_to" ref="act_evento_cancelado" />
+			<field name="signal">cancelar</field>
+		</record>
+		<record id="trans_negociacion_pendiente" model="workflow.transition">
+			<field name="act_from" ref="act_evento_negociacion" />
+			<field name="act_to" ref="act_evento_pendiente" />
+			<field name="signal">pendiente</field>
+		</record>
+		<record id="trans_pendiente_presupuesto" model="workflow.transition">
+			<field name="act_from" ref="act_evento_pendiente" />
+			<field name="act_to" ref="act_evento_presupuesto" />
+			<field name="signal">presupuestar</field>
+		</record>
+		<record id="trans_pendiente_cancelado" model="workflow.transition">
+			<field name="act_from" ref="act_evento_pendiente" />
+			<field name="act_to" ref="act_evento_cancelado" />
+			<field name="signal">cancelar</field>
+		</record>
+		<record id="trans_pendiente_pagado" model="workflow.transition">
+			<field name="act_from" ref="act_evento_pendiente" />
+			<field name="act_to" ref="act_evento_pagado" />
+			<field name="signal">pagar</field>
+		</record>
+		<record id="trans_pagado_devolucion" model="workflow.transition">
+			<field name="act_from" ref="act_evento_pagado" />
+			<field name="act_to" ref="act_evento_devolucion" />
+			<field name="signal">devolver</field>
+		</record>
+		<record id="trans_pagado_realizado" model="workflow.transition">
+			<field name="act_from" ref="act_evento_pagado" />
+			<field name="act_to" ref="act_evento_realizado" />
+			<field name="signal">realizar</field>
+		</record>
+		<record id="trans_devolucion_presupuesto" model="workflow.transition">
+			<field name="act_from" ref="act_evento_devolucion" />
+			<field name="act_to" ref="act_evento_presupuesto" />
+			<field name="signal">presupuestar</field>
+		</record>
+		<record id="trans_devolucion_cancelado" model="workflow.transition">
+			<field name="act_from" ref="act_evento_devolucion" />
+			<field name="act_to" ref="act_evento_cancelado" />
+			<field name="signal">cancelar</field>
+		</record>
+	</data>
+</openerp>

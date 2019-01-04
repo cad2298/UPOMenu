@@ -24,16 +24,18 @@
 
 					<!-- Workflow -->
 					<field name='state' widget='statusbar' statusbar_visible="nuevo,aprobado,rechazado"
-						statusbar_colors='{"solicitante":"orange","completado": "orange","aprobado": "green","rechazado": "red"}' />
-					<group colspan="4" col="3">
+						statusbar_colors='{"nuevo":"orange","completado": "orange","aprobado": "green","rechazado": "red"}' />
+					<group colspan="4" col="1" >
 						<button name="completar" states="nuevo" string="Completar"
 							colspan="1" icon="gtk-apply" />
 						<button name="aprobar" states="completado" string="Aprobar"
-							colspan="1" icon="gtk-apply" />
+							colspan="1" icon="gtk-go-forward" />
 						<button name="rechazar" states="completado" string="Rechazar"
 							colspan="1" icon="gtk-cancel" />
 						<button name="rechazar" states="aprobado" string="Rechazar"
 							colspan="1" icon="gtk-cancel" />
+						<button name="aprobar" states="rechazado" string="Aprobar"
+							colspan="1" icon="gtk-apply" />
 					</group>
 				</form>
 			</field>
@@ -49,6 +51,18 @@
 				</tree>
 			</field>
 		</record>
+		<!-- Vista de Grafico -->
+		<record model="ir.ui.view" id="view_UPOMenu_menu_graph">
+            <field name="name">view_UPOMenu_menu_graph</field>
+            <field name="model">menu</field>
+            <field name="type">graph</field>
+            <field name="arch" type="xml">
+                <graph string="Proporcion de menus usados" type="pie">
+                    <field name="name" />
+                    <field name="uso" />
+                </graph>
+            </field>
+        </record>
 
 		<record id="act_menu" model="ir.actions.act_window">
 			<field name="name">Menus</field>

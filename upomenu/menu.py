@@ -28,19 +28,13 @@ class menu(osv.Model):
     _name = 'menu'
     _description = 'Menus.'
     
-    def precioTotal(self, cr,uid,ids,field,arg,context=None):
-        res ={},
-        suma=0.0,
-        for clase in self.browse(cr,uid,ids,context=context):
-            cantidadB=res[clase.bebidasmenu_ids]
-            cantidadC=res[clase.platosmenu_ids.cantidad]
-            
-            precioC=res[clase.bebidasmenu_ids.platosmenu_id.price]
-            precioB=res[clase.bebidasmenu_ids.bebida_id.price]
-            
-            suma=suma+cantidadB*precioB+precioC*cantidadC
-            
-        return suma  
+    def _num_eventos(self, cr, uid, ids, field, arg, context=None):
+        res = {} 
+
+        # Recorre todas los menus y calcula el número de eventos asociados
+        for menu in self.browse(cr, uid, ids, context=context):
+            res[menu.id] = len(menu.evento_ids)
+        return    res
     
     _columns = {
             'name':fields.char('Nombre', size=64, required=True, readonly=False, Translate=False),
@@ -51,6 +45,7 @@ class menu(osv.Model):
             'bebidasmenu_ids':fields.one2many('bebidasmenu', 'menu_id', 'Bebidas del menu'),
             'calendario_de_menus_id':fields.many2one('calendario_de_menus', 'Calendario de menus'),
             'state':fields.selection([('nuevo', 'Nuevo'), ('completado', 'Completado'), ('aprobado', 'Aprobado'), ('rechazado', 'Rechazado')], 'Estado'),
+            'uso':fields.function(_num_eventos, type='integer', string='Ocupacion total', store  = True)
     }
     _defaults = {'state':'nuevo'}
     
@@ -58,22 +53,22 @@ class menu(osv.Model):
     def _check_price(self, cr, uid, ids): 
         
         for clase in self.browse(cr, uid, ids):
-            if clase.price <=0:
+            if clase.price <= 0:
                 return False
         return True
     
     
     def _check_name(self, cr, uid, ids):
         for clase in self.browse(cr, uid, ids):
-            myString=clase.name
+            myString = clase.name
             if myString and myString.strip():
-        #myString is not None AND myString is not empty or blank
+        # myString is not None AND myString is not empty or blank
                 return False
         return True
         
     _constraints = [(_check_price, 'El precio no puede ser nulo', ['price']),
-                    #(_check_name, 'Nombre no válido', ['name']),
+                    # (_check_name, 'Nombre no válido', ['name']),
                     ]
     
-    _sql_constraints=[('name_uniq','unique (name)','El nombre del menu ya existe'),
+    _sql_constraints = [('name_uniq', 'unique (name)', 'El nombre del menu ya existe'),
                       ]  
