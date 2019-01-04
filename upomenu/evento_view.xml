@@ -14,11 +14,10 @@
 						<field name="price" />
 						<field name="cliente_id" />
 						<field name="fecha" />
-						<field name="fecha_fin" />
+						<field name="duracion" />
 						<field name="lugar" />
 						<field name="numComensales" />
 						<field name="numEmpleados" />
-						<field name="duracion" />
 						<field name="tipo" />
 						<field name="menu_ids" />
 						<field name="finca_id" />
@@ -29,7 +28,7 @@
 						statusbar_visible="nuevo,presupuesto,negociacion,pendiente,pagado,devolucion,realizado,cancelado"
 						statusbar_colors='{"nuevo":"blue","presupuesto": "orange","negociacion": "orange","pendiente": "orange","pagado": "orange"
 						,"devolucion": "orange","realizado": "green","cancelado": "red"}' />
-					<group colspan="4" col="1" >
+					<group colspan="4" col="1">
 						<button name="presupuestar" states="nuevo" string="Presupuestar"
 							colspan="1" icon="gtk-go-forward" />
 						<button name="negociar" states="presupuesto" string="Negociación"
@@ -71,11 +70,11 @@
 					<field name="name" colspan="1" />
 					<field name="price" />
 					<field name="cliente_id" />
-					<field name="fecha_fin" />
+					<field name="fecha" />
+					<field name="duracion" />
 					<field name="lugar" />
 					<field name="numComensales" />
 					<field name="numEmpleados" />
-					<field name="duracion" />
 					<field name="tipo" />
 					<field name="menu_ids" />
 					<field name="finca_id" />
@@ -104,7 +103,7 @@
 			<field name="type">calendar</field>
 			<field name="arch" type="xml">
 				<calendar string="Eventos" color="tipo" date_start="fecha"
-					date_stop="fecha_fin">
+					date_delay="duracion">
 					<field name="name" />
 					<field name="lugar" />
 				</calendar>
