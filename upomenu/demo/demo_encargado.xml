@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="encargado1" model="encargado">
+            <field name="name">Raquel Martinez</field>
+            <field name="dni">309174577B</field>
+            <field name="telefono">929274639</field>
+            <field name="email">raqmart@gmail.com</field>
+            <field name="numEventosRealizados">32</field>
+        </record>
+    </data>
+</openerp>

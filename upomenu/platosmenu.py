@@ -37,9 +37,9 @@ class platosmenu(osv.Model):
         }
     def _check_cantidad(self, cr, uid, ids): 
         
-        for clase in self.browse(cr, uid, ids):
-            if clase.price <=0:
+        for platomenu in self.browse(cr, uid, ids):
+            if platomenu.cantidad <=0:
                 return False
         return True
-    _constraints = [(_check_cantidad, 'Error: cantidad erronea', ['price']), ] 
+    _constraints = [(_check_cantidad, 'Error: La cantidad no puede ser cero o menos.', ['cantidad']), ] 
     

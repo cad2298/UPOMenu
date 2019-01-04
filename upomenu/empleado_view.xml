@@ -4,7 +4,7 @@
 		<record model="ir.ui.view" id="view_UPOMenu_empleado_form">
 			<field name="name">view_UPOMenu_empleado_form</field>
 			<field name="model">empleado</field>
-			<field name="inherit_id" ref="UPOMenu.view_UPOMenu_personal_form" />
+			<field name="inherit_id" ref="upomenu.view_UPOMenu_personal_form" />
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<data>
@@ -25,9 +25,23 @@
 					<field name="dni" />
 					<field name="telefono" />
 					<field name="email" />
-					<field name="numEventosRealizados" />
 					<field name="encargado_id" />
+					<field name="numEventosRealizados" />
 				</tree>
+			</field>
+		</record>
+
+		<!-- Vista de Búsqueda -->
+		<record model="ir.ui.view" id="view_UPOMenu_empleado_search">
+			<field name="name">view_UPOMenu_empleado_search</field>
+			<field name="model">empleado</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Empleados">
+					<group expand="0" string="Agrupar por...">
+						<filter string="Jefe" context="{'group_by':'encargado_id'}" />
+					</group>
+				</search>
 			</field>
 		</record>
 
@@ -38,7 +52,7 @@
 			<field name="view_type">form</field>
 			<field name="view_mode">tree,form</field>
 		</record>
-		
+
 		<menuitem name="Ver empleados" id="ver_empleado_submenu"
 			parent="personal_submenu" sequence="120" action="act_empleado" />
 	</data>

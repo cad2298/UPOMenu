@@ -13,17 +13,17 @@
 					<newline />
 					<notebook colspan="2">
 						<page string="Platos">
-							<field name="platosmenu_ids" nolabel="1" />
+							<field name="platosmenu_ids" nolabel="1" colspan="2" />
 						</page>
 						<page string="Bebidas">
-							<field name="bebidasmenu_ids" nolabel="1" />
+							<field name="bebidasmenu_ids" nolabel="1" colspan="2"/>
 						</page>
 					</notebook>
 
 					<newline></newline>
 
 					<!-- Workflow -->
-					<field name='state' widget='statusbar' statusbar_visible="nuevo,aprobado,rechazado"
+					<field name='state' widget='statusbar' statusbar_visible="nuevo,completado,aprobado,rechazado"
 						statusbar_colors='{"nuevo":"orange","completado": "orange","aprobado": "green","rechazado": "red"}' />
 					<group colspan="4" col="1" >
 						<button name="completar" states="nuevo" string="Completar"
@@ -47,6 +47,7 @@
 			<field name="arch" type="xml">
 				<tree string="Menu">
 					<field name="name" />
+					<field name="state" />
 					<field name="price" />
 				</tree>
 			</field>
@@ -71,9 +72,8 @@
 			<field name="view_mode">tree,form</field>
 		</record>
 
-		<menuitem id="UpoMenu" name="UPOMenu" action="act_menu" />
 		<menuitem name="Menu" id="menus_submenu" parent="UpoMenu"
-			sequence="100" />
+			sequence="90" />
 		<menuitem name="Info menus" id="ver_menus_submenu" parent="menus_submenu"
 			sequence="100" action="act_menu" />
 	</data>

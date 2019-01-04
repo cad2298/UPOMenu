@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="plato1" model="plato">
+            <field name="name">Ensalada</field>
+            <field name="tipo">entrante</field>
+            <field name="precio">1.30</field>
+            <field name="ingrediente_ids" eval="[(6, 0, [ingrediente4, ingrediente5, ingrediente1])]"></field>
+        </record>
+        <record id="plato2" model="plato">
+            <field name="name">Tortilla francesa</field>
+            <field name="tipo">principal</field>
+            <field name="precio">1.20</field>
+            <field name="ingrediente_ids" eval="[(6, 0, [ingrediente4])]"></field>
+        </record>
+        <record id="plato3" model="plato">
+            <field name="name">Helado</field>
+            <field name="tipo">postre</field>
+            <field name="precio">1.0</field>
+            <field name="ingrediente_ids"></field>
+            <field name="ingrediente_ids" eval="[(6, 0, [ingrediente4])]"></field>
+        </record>
+    </data>
+</openerp>

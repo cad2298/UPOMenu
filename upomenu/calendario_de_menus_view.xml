@@ -13,9 +13,6 @@
 						<page string="Menus">
 							<field name="menu_ids" mode="tree" nolabel="1" colspan="2" />
 						</page>
-						<!-- <page string="Comedores">
-							<field name="comedor_ids" mode="tree" nolabel="1" colspan="2" />
-						</page> -->
 					</notebook>
 				</form>
 			</field>
@@ -29,7 +26,6 @@
 				<tree string="tree_string">
 					<field name="name" />
 					<field name="menu_ids" />
-					<!-- <field name="comedor_ids" /> -->
 				</tree>
 			</field>
 		</record>

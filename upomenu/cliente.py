@@ -32,7 +32,6 @@ class cliente(osv.Model):
             'name':fields.char('Nombre', size=64, required=True),
             'telefono':fields.char('Telefono',size=9,required=True),
             'email':fields.char('Correo', size=128),
-            'identificador':fields.integer('Id'),
             'evento_ids':fields.one2many('evento', 'cliente_id', 'Eventos', Readonly=True),
             }
     def _check_mobile(self, cr, uid, ids, context=None):

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="cocinero1" model="cocinero">
+            <field name="name">Raul Perez</field>
+            <field name="dni">302986475B</field>
+            <field name="telefono">927826893</field>
+            <field name="email">raulper@gmail.com</field>
+            <field name="numEventosRealizados">23</field>
+            <field name="rango">chef_de_seccion</field>
+        </record>
+        <record id="cocinero2" model="cocinero">
+            <field name="name">Alberto Duarte</field>
+            <field name="dni">306382875Z</field>
+            <field name="telefono">929167893</field>
+            <field name="email">albduar@gmail.com</field>
+            <field name="numEventosRealizados">10</field>
+            <field name="rango">segundo_de_cocina</field>
+        </record>
+        <record id="cocinero3" model="cocinero">
+            <field name="name">Lucas Batalla</field>
+            <field name="dni">302927485X</field>
+            <field name="telefono">991728593</field>
+            <field name="email">lucbat@gmail.com</field>
+            <field name="numEventosRealizados">5</field>
+            <field name="rango">pinche</field>
+        </record>
+    </data>
+</openerp>

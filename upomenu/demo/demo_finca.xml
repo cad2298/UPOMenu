@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<record id="finca1" model="finca">
+			<field name="name">Finca Pajar</field>
+			<field name="ubicacion">C/Cortes Malnar</field>
+			<field name="aforo">150</field>
+			<field name="precio">1500</field>
+			<field name="conciertos">True</field>
+			<field name="exterior">True</field>
+		</record>
+		<record id="finca2" model="finca">
+			<field name="name">Local Amarto</field>
+			<field name="ubicacion">Av/Principal</field>
+			<field name="aforo">60</field>
+			<field name="precio">600</field>
+			<field name="conciertos">True</field>
+			<field name="exterior">False</field>
+		</record>
+	</data>
+</openerp>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="platosmenu1" model="platosmenu">
+            <field name="cantidad">1</field>
+            <field name="plato_id" ref="plato1"></field>
+        </record>
+		<record id="platosmenu2" model="platosmenu">
+            <field name="cantidad">2</field>
+            <field name="plato_id" ref="plato2"></field>
+        </record>
+        <record id="platosmenu3" model="platosmenu">
+            <field name="cantidad">1</field>
+            <field name="plato_id" ref="plato3"></field>
+        </record>
+    </data>
+</openerp>

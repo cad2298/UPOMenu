@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="cliente1" model="cliente">
+            <field name="name">Juan J.</field>
+            <field name="telefono">987634859</field>
+            <field name="email">juanj@gmail.com</field>
+        </record>
+        <record id="cliente2" model="cliente">
+            <field name="name">Asoc. Mangafest</field>
+            <field name="telefono">966632873</field>
+            <field name="email">mangafest@gmail.com</field>
+        </record>
+    </data>
+</openerp>

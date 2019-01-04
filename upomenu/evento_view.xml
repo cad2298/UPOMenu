@@ -9,8 +9,8 @@
 			<field name="arch" type="xml">
 				<form string="form_string">
 
-					<group colspan="4">
-						<field name="name" colspan="1" />
+					<group colspan="2" col="2">
+						<field name="name" colspan="2" />
 						<field name="price" />
 						<field name="cliente_id" />
 						<field name="fecha" />
@@ -18,16 +18,23 @@
 						<field name="lugar" />
 						<field name="numComensales" />
 						<field name="numEmpleados" />
-						<field name="tipo" />
-						<field name="menu_ids" />
+						<field name="tipo" colspan="2" />
 						<field name="finca_id" />
 					</group>
+					<group colspan="2">
+						<notebook>
+							<page string="Menus">
+								<field name="menu_ids" nolabel="1" />
+							</page>
+						</notebook>
+					</group>
 
+					<newline></newline>
 					<!-- Workflow -->
 					<field name='state' widget='statusbar'
 						statusbar_visible="nuevo,presupuesto,negociacion,pendiente,pagado,devolucion,realizado,cancelado"
 						statusbar_colors='{"nuevo":"blue","presupuesto": "orange","negociacion": "orange","pendiente": "orange","pagado": "orange"
-						,"devolucion": "orange","realizado": "green","cancelado": "red"}' />
+						,"devolucion": "orange","realizado": "green","cancelado": "red"}' colspan="4" />
 					<group colspan="4" col="1">
 						<button name="presupuestar" states="nuevo" string="Presupuestar"
 							colspan="1" icon="gtk-go-forward" />
@@ -76,8 +83,7 @@
 					<field name="numComensales" />
 					<field name="numEmpleados" />
 					<field name="tipo" />
-					<field name="menu_ids" />
-					<field name="finca_id" />
+					<field name="state" />
 				</tree>
 			</field>
 		</record>
@@ -118,8 +124,9 @@
 			<field name="view_mode">tree,form,calendar</field>
 		</record>
 
+		<menuitem id="UpoMenu" name="UPOMenu" action="act_evento" />
 		<menuitem name="Eventos" id="eventos_submenu" parent="UpoMenu"
-			sequence="130" />
+			sequence="80" />
 		<menuitem name="Ver eventos" id="ver_eventos_submenu" parent="eventos_submenu"
 			sequence="110" action="act_evento" />
 

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="bebidasmenu1" model="bebidasmenu">
+            <field name="cantidad">1</field>
+            <field name="bebida_id" ref="bebida5"></field>
+        </record>
+		<record id="bebidasmenu2" model="bebidasmenu">
+            <field name="cantidad">2</field>
+            <field name="bebida_id" ref="bebida1"></field>
+        </record>
+    </data>
+</openerp>

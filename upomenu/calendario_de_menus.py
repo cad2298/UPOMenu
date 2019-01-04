@@ -26,11 +26,11 @@ from osv import fields
 class calendario_de_menus(osv.Model):
 
     _name = 'calendario_de_menus'
-    _description = 'Calendario de menus para usar en comedores.'
+    _description = 'lista de menus usados en un comedor.'
  
     _columns = {
             'name':fields.char('Nombre', size=64, required=True),
-            'menu_ids':fields.one2many('menu', 'calendario_de_menus_id', 'Menus'),
-            #'comedor_ids':fields.one2many('comedor', 'calendario_de_menus_id', 'Comedores'),
+            'menu_ids':fields.many2many('menu', 'menu_calendario_rel', 'calendario_de_menus_id', 'menu_id', 'Menus'),
+            'comedor_ids':fields.one2many('comedor', 'calendario_de_menus_id', 'Comedores'),
             }
             

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="menu1" model="menu">
+            <field name="name">Menu del día</field>
+            <field name="price">5.60</field>
+            <field name="state">aprobado</field>
+            <field name="platosmenu_ids" eval="[(6, 0, [platosmenu2, platosmenu3])]"></field>
+            <field name="bebidasmenu_ids" eval="[(6, 0, [bebidasmenu2])]"></field>
+        </record>
+        <record id="menu2" model="menu">
+            <field name="name">Menu vegetal</field>
+            <field name="price">2.30</field>
+            <field name="state">nuevo</field>
+            <field name="platosmenu_ids" eval="[(6, 0, [platosmenu1])]"></field>
+            <field name="bebidasmenu_ids" eval="[(6, 0, [bebidasmenu1])]"></field>
+        </record>
+    </data>
+</openerp>

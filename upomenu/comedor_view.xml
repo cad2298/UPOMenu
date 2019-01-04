@@ -12,12 +12,9 @@
 						<field name="name" />
 						<field name="ubicacion" />
 						<field name="email" />
-
 					</group>
 					<group colspan="2">
 						<field name="calendario_de_menus_id" />
-						<separator string="Personal" colspan="2" />
-						<field name="personal_ids" mode="tree" nolabel="1" colspan="2" />
 					</group>
 				</form>
 			</field>

@@ -31,7 +31,7 @@ class plato(osv.Model):
     _columns = {
             'name':fields.char('Nombre', size=64, required=True, readonly=False),
             'tipo':fields.selection([('entrante', 'Entrante'),
-                                     ('platoPrincipal', 'Plato principal'),
+                                     ('principal', 'Plato principal'),
                                      ('postre', 'Postre'),
                                      ], 'Tipo de plato'),
             'imagen':fields.binary('Imagen'), 

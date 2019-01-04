@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="empleado1" model="empleado">
+            <field name="name">Marta Torres</field>
+            <field name="dni">249128947Z</field>
+            <field name="telefono">920927835</field>
+            <field name="email">martor@gmail.com</field>
+            <field name="numEventosRealizados">7</field>
+            <field name="encargado_id"  ref="encargado1"></field>
+        </record>
+        <record id="empleado2" model="empleado">
+            <field name="name">Alvaro Rodriguez</field>
+            <field name="dni">309174577B</field>
+            <field name="telefono">928538639</field>
+            <field name="email">alvrod@gmail.com</field>
+            <field name="numEventosRealizados">17</field>
+            <field name="encargado_id"  ref="encargado1"></field>
+        </record>
+    </data>
+</openerp>

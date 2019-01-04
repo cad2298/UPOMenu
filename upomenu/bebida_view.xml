@@ -59,10 +59,9 @@
 			<field name="view_mode">tree,form</field>
 		</record>
 
-		<menuitem name="Bebidas" id="bebidas_submenu" parent="UpoMenu"
-			sequence="130" />
-		<menuitem name="Ver bebidas" id="ver_bebidas_submenu" parent="bebidas_submenu"
-			sequence="110" action="act_bebida" />
+
+		<menuitem name="Ver bebidas" id="ver_bebidas_submenu" parent="plato_submenu"
+			sequence="140" action="act_bebida" />
 
 	</data>
 </openerp>

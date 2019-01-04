@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<record id="calendario_de_menus1" model="calendario_de_menus">
+			<field name="name">Hospital</field>
+			<field name="menu_ids" eval="[(6, 0, [menu1, menu2])]"></field>
+		</record>
+		<record id="calendario_de_menus2" model="calendario_de_menus">
+			<field name="name">Colegio</field>
+			<field name="menu_ids" eval="[(6, 0, [menu1])]"></field>
+		</record>
+	</data>
+</openerp>

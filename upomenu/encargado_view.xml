@@ -4,7 +4,7 @@
 		<record model="ir.ui.view" id="view_UPOMenu_encargado_form">
 			<field name="name">view_UPOMenu_encargado_form</field>
 			<field name="model">encargado</field>
-			<field name="inherit_id" ref="UPOMenu.view_UPOMenu_personal_form" />
+			<field name="inherit_id" ref="upomenu.view_UPOMenu_personal_form" />
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<data>

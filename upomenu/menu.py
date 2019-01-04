@@ -38,35 +38,34 @@ class menu(osv.Model):
     
     _columns = {
             'name':fields.char('Nombre', size=64, required=True, readonly=False, Translate=False),
-            
-            'price': fields.integer('Precio'),
+            'price': fields.float('Precio'),
             'evento_ids':fields.many2many('evento', 'evento_menu_rel', 'menu_id', 'evento_id', 'Eventos'),
             'platosmenu_ids':fields.one2many('platosmenu', 'menu_id', 'Platos del menu'),
             'bebidasmenu_ids':fields.one2many('bebidasmenu', 'menu_id', 'Bebidas del menu'),
-            'calendario_de_menus_id':fields.many2one('calendario_de_menus', 'Calendario de menus'),
+            'calendario_de_menus_ids':fields.many2many('calendario_de_menus', 'menu_calendario_rel', 'menu_id', 'calendario_de_menus_id', 'Calendario de menus'),
             'state':fields.selection([('nuevo', 'Nuevo'), ('completado', 'Completado'), ('aprobado', 'Aprobado'), ('rechazado', 'Rechazado')], 'Estado'),
-            'uso':fields.function(_num_eventos, type='integer', string='Ocupacion total', store  = True)
+            'uso':fields.function(_num_eventos, type='integer', string='Ocupacion total', store=True)
     }
     _defaults = {'state':'nuevo'}
     
         
     def _check_price(self, cr, uid, ids): 
         
-        for clase in self.browse(cr, uid, ids):
-            if clase.price <= 0:
+        for menu in self.browse(cr, uid, ids):
+            if menu.price < 0:
                 return False
         return True
     
     
     def _check_name(self, cr, uid, ids):
-        for clase in self.browse(cr, uid, ids):
-            myString = clase.name
+        for menu in self.browse(cr, uid, ids):
+            myString = menu.name
             if myString and myString.strip():
         # myString is not None AND myString is not empty or blank
                 return False
         return True
         
-    _constraints = [(_check_price, 'El precio no puede ser nulo', ['price']),
+    _constraints = [(_check_price, 'El precio no puede ser negativo', ['price']),
                     # (_check_name, 'Nombre no válido', ['name']),
                     ]
     

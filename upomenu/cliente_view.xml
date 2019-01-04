@@ -13,7 +13,6 @@
 						<field name="name" colspan="1" />
 						<field name="telefono" />
 						<field name="email" />
-						<field name="identificador" />
 						<field name="evento_ids" />
 					</group>
 
@@ -31,7 +30,6 @@
 						<field name="name" colspan="1" />
 						<field name="telefono" />
 						<field name="email" />
-						<field name="identificador" />
 						<field name="evento_ids" />
 				</tree>
 			</field>
@@ -46,7 +44,7 @@
 		</record>
 
 		<menuitem name="Clientes" id="clientes_submenu" parent="UpoMenu"
-			sequence="140" />
+			sequence="110" />
 		<menuitem name="Ver clientes" id="ver_clientes_submenu"
 			parent="clientes_submenu" sequence="110" action="act_cliente" />
 

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<record id="comedor1" model="comedor">
+			<field name="name">Hospital General</field>
+			<field name="ubicacion">C/Martin Pescador</field>
+			<field name="email">hospgen@gmail.com</field>
+			<field name="calendario_de_menus_id" ref="calendario_de_menus1"></field>
+		</record>
+		<record id="comedor2" model="comedor">
+			<field name="name">Colegio Alpinos</field>
+			<field name="ubicacion">Av/Montequinto</field>
+			<field name="email">alpinos@gmail.com</field>
+			<field name="calendario_de_menus_id" ref="calendario_de_menus2"></field>
+		</record>
+	</data>
+</openerp>

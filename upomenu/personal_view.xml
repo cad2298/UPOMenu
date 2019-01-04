@@ -53,8 +53,6 @@
 		</record>
 
 		<menuitem name="Personal" id="personal_submenu" parent="UpoMenu"
-			sequence="120" action="act_personal" />
-		<menuitem name="Ver personal" id="ver_personal_submenu"
-			parent="personal_submenu" sequence="100" action="act_personal" />
+			sequence="120" />
 	</data>
 </openerp>

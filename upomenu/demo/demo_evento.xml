@@ -1,27 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
 	<data>
-		<record id="9" model="evento">
-			<field name="name">Mangafest</field>
-			<field name="price">5000</field>
-			<field name="fecha">5/12/2018 14:00:00</field>
-			<field name="duracion">72</field>
-			<field name="lugar">C/ Condes de Bustillo</field>
-			<field name="numComensales">100</field>
-			<field name="numEmpleados">100</field>
-			<field name="tipo" >otro</field>
-			<field name="state" >devolucion</field>
-		</record>
-		<record id="10" model="evento">
-			<field name="name">Boda Juan L.</field>
+		<record id="evento1" model="evento">
+			<field name="name">Boda Juan J.</field>
 			<field name="price">4200</field>
 			<field name="fecha">30/01/2019 12:00:00</field>
 			<field name="duracion">12</field>
 			<field name="lugar">C/Condes de Bustillo</field>
 			<field name="numComensales">100</field>
-			<field name="numEmpleados">100</field>
-			<field name="tipo" >boda</field>
-			<field name="state" >presupuesto</field>
+			<field name="numEmpleados">6</field>
+			<field name="tipo">boda</field>
+			<field name="state">pendiente</field>
+			<field name="cliente_id" ref="cliente1"></field>
+			<field name="finca_id" ref="finca1"></field>
+		</record>
+		<record id="evento2" model="evento">
+			<field name="name">Mangafest</field>
+			<field name="price">5000</field>
+			<field name="fecha">5/12/2018 14:00:00</field>
+			<field name="duracion">72</field>
+			<field name="lugar">Fibes</field>
+			<field name="numComensales">150</field>
+			<field name="numEmpleados">7</field>
+			<field name="tipo">otro</field>
+			<field name="state">realizado</field>
+			<field name="cliente_id" ref="cliente2"></field>
 		</record>
 	</data>
 </openerp>

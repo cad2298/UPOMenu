@@ -30,6 +30,9 @@ import evento
 import cliente
 import finca
 import personal
+import empleado
+import encargado
+import cocinero
 import calendario_de_menus
 import workflow
 import demo
